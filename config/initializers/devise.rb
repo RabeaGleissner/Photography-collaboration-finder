@@ -6,6 +6,8 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # config.secret_key = '8f5074b43cb28fce18643029c3c9ce1f29df207d3a788d7172ce77a050d9bf1ed9112b10b00c45184647cde4fddfb29f324a0fb7a2e07fe364c929f5b0323d04'
 
+  config.omniauth :flickr, 'APP_ID', 'APP_SECRET'
+
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
@@ -20,8 +22,11 @@ Devise.setup do |config|
   # :mongoid (bson_ext recommended) by default. Other ORMs may be
   # available as additional gems.
   require 'devise/orm/active_record'
+  require "omniauth-flickr"
 
   # ==> Configuration for any authentication mechanism
+  config.omniauth :flickr, ENV['FLICKR_API_KEY'], ENV['FLICKR_SECRET_API_KEY']
+
   # Configure which keys are used when authenticating a user. The default is
   # just :email. You can configure it to use [:username, :subdomain], so for
   # authenticating a user, both parameters are required. Remember that those
