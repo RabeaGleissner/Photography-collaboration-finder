@@ -9,6 +9,8 @@
     .login
     - if current_user
       = current_user.flickr_name
+      = current_user.email
+      | 
       = link_to "Log out", destroy_user_session_path, method: :delete
     - else
       = link_to "Sign In", new_user_session_path
@@ -20,5 +22,10 @@
     %nav
       %ul
         %li 
-          = link_to "About", about_path
+          = link_to "Home", root_path
+          = link_to "How it works", about_path
+          - if current_user
+            = link_to "Gallery", gallery_path
+            = link_to "Start a collaboration", users_path
+            = link_to "Tips for good doubles", tips_path
     = yield

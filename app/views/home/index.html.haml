@@ -1,1 +1,13 @@
-%h1 Logged out homepage
+%h1 Homepage
+
+%p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla mollitia et, officia harum itaque voluptatum praesentium quod sapiente minus. Voluptatum illo distinctio ab numquam quod impedit ullam maxime, velit ratione!
+
+%h2 Gallery
+
+- @photos.each do |photo|
+  %ul
+    %li
+      = photo.id
+      - info = flickr.photos.getInfo(photo_id: photo.id)
+      = image_tag FlickRaw.url_z(info)
+
