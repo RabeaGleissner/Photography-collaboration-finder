@@ -4,7 +4,13 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, omniauth_providers: [:flickr]
-      
+  
+  has_many :collaborations, foreign_key: :collaborator1_id   
+  has_many :collaborations, foreign_key: :collaborator2_id 
+
+  # Example
+  # has_many :x_matches, class_name:'Match', foreign_key: :player_x_id     
+  
 
   def self.from_omniauth(auth)
     if user = User.find_by_email(auth.info.email)

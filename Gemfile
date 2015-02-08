@@ -14,6 +14,7 @@ gem 'rails_12factor', group: :production
 gem 'geocoder'
 gem 'omniauth-flickr', '~> 0.0.15'
 gem 'flickraw', '~> 0.9.8'
+gem 'haml-rails'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

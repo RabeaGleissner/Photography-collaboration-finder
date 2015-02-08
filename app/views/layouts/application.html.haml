@@ -1,0 +1,20 @@
+!!! 5
+%html
+  %head
+    %title HamlApp
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+  %body
+    .login
+    - if current_user
+      = current_user.flickr_name
+      = link_to "Log out", destroy_user_session_path, method: :delete
+    - else
+      = link_to "Sign In", new_user_session_path
+      = link_to "Register", new_user_registration_path
+      or
+      = link_to "Sign in with Flickr", user_omniauth_authorize_path(:flickr)
+    %p.notice= notice
+    %p.alert= alert
+    = yield
