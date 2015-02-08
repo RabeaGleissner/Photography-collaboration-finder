@@ -6,8 +6,6 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # config.secret_key = '8f5074b43cb28fce18643029c3c9ce1f29df207d3a788d7172ce77a050d9bf1ed9112b10b00c45184647cde4fddfb29f324a0fb7a2e07fe364c929f5b0323d04'
 
-  config.omniauth :flickr, 'APP_ID', 'APP_SECRET'
-
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
