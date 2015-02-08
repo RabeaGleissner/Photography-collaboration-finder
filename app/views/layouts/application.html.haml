@@ -1,7 +1,7 @@
 !!! 5
 %html
   %head
-    %title HamlApp
+    %title Film swap app
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
@@ -17,4 +17,8 @@
       = link_to "Sign in with Flickr", user_omniauth_authorize_path(:flickr)
     %p.notice= notice
     %p.alert= alert
+    %nav
+      %ul
+        %li 
+          = link_to "About", about_path
     = yield
