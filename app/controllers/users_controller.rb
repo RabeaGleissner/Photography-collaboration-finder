@@ -8,6 +8,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @photos = current_user.flickr.photosets.getPhotos(photoset_id: '72157626714345858').photo
   end
 
   def edit

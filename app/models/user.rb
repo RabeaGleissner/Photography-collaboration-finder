@@ -8,12 +8,15 @@ class User < ActiveRecord::Base
   has_many :collaborations, foreign_key: :collaborator1_id   
   has_many :collaborations, foreign_key: :collaborator2_id 
 
+  attr_accessor :flickr_access_token, :flickr_access_secret
+
+
   # Example
   # has_many :x_matches, class_name:'Match', foreign_key: :player_x_id     
   
 
   def self.from_omniauth(auth)
-    if user = User.find_by_email(auth.info.email)
+    if user = User.find_by_flickr_name(auth.info.name)
       user.provider = auth.provider
       user.uid = auth.uid
       user
@@ -21,12 +24,25 @@ class User < ActiveRecord::Base
       where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
         user.provider = auth.provider
         user.uid = auth.uid
-        user.email = auth.info.email
+        user.flickr_name = auth.info.name
+        user.email = "#{rand(1000)}@#{rand(121212)}.com"
         user.password = Devise.friendly_token[0,20]
       end
     end
   end
 
 
+  # def last_ten
+  #   flickr.
+  # end
+
+  def flickr
+    return @flickr if @flickr
+
+    @flickr = FlickRaw::Flickr.new
+    @flickr.access_token = flickr_access_token
+    @flickr.access_secret = flickr_access_secret
+    @flickr
+  end
 
 end
