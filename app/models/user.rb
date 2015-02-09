@@ -28,7 +28,8 @@ class User < ActiveRecord::Base
         user.uid = auth.uid
         user.flickr_name = auth.info.name
         user.location = auth.info.location._content
-        # user.profileurl = auth.extra.raw_info.person.profileurl._content
+        user.profileurl = auth.extra.raw_info.person.profileurl._content
+        user.image = auth.info.image
         user.email = "#{rand(1000)}@#{rand(121212)}.com"
         user.password = Devise.friendly_token[0,20]
       end
