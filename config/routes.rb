@@ -7,5 +7,6 @@ Rails.application.routes.draw do
   get '/tips', to: 'users#tips'
 
   resources :users
+  get '/new_user', to: 'users#new_user'
   
 end

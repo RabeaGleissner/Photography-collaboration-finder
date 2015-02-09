@@ -1,0 +1,11 @@
+%h1 Welcome to Film swap partner finder!
+
+%p If you would like to be notified by email about any film swap partner matches, please enter your email below.
+
+%form{method: :post}
+      %input{type: :text, placeholder: :email}
+      %input{type: :submit, value: :Submit}  
+
+%br
+= link_to "Continue without email", users_path
+%p You can always add it to your user profile later.
