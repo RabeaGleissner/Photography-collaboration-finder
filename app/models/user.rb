@@ -18,7 +18,6 @@ class User < ActiveRecord::Base
 
   def self.from_omniauth(auth)
     if user = User.find_by_flickr_name(auth.info.name)
-      raise
       user.provider = auth.provider
       user.uid = auth.uid
       user
