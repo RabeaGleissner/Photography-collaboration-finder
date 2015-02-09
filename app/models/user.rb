@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
   
   has_many :collaborations, foreign_key: :collaborator1_id   
   has_many :collaborations, foreign_key: :collaborator2_id 
+  has_many :films
 
   attr_accessor :flickr_access_token, :flickr_access_secret
 
@@ -17,6 +18,7 @@ class User < ActiveRecord::Base
 
   def self.from_omniauth(auth)
     if user = User.find_by_flickr_name(auth.info.name)
+      raise
       user.provider = auth.provider
       user.uid = auth.uid
       user
@@ -25,6 +27,8 @@ class User < ActiveRecord::Base
         user.provider = auth.provider
         user.uid = auth.uid
         user.flickr_name = auth.info.name
+        user.location = auth.info.location._content
+        # user.profileurl = auth.extra.raw_info.person.profileurl._content
         user.email = "#{rand(1000)}@#{rand(121212)}.com"
         user.password = Devise.friendly_token[0,20]
       end
