@@ -4,6 +4,7 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
+    @films = Film.all
 
   end
 
@@ -11,7 +12,7 @@ class UsersController < ApplicationController
     @films = current_user.films
     @photosets = flickr.photosets.getList(user_id: current_user.uid)
     @firstset = flickr.photosets.getList(user_id: current_user.uid).first
-    @firstsetphotos = flickr.photosets.getPhotos(photoset_id: @firstset.id).photo
+    @firstsetphotos = flickr.photosets.getPhotos(photoset_id: @firstset.id, privacy_filter: 1).photo
   end
 
   def edit
