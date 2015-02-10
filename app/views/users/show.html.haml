@@ -1,6 +1,16 @@
 %h1 User profile page
 
-%p Location: user.location
-%p Film types:
-%p Open to collaborations with:
-%p Availability:
+%p Location: #{current_user.location}
+
+
+/ - if @films.any?
+/   @films.each do |film|
+/   = film.format
+
+
+
+- if current_user.availability == true
+  - availability = "available for film swaps"
+- else
+  - availability = "currently not available for film swaps"
+%p Availability: #{availability}
