@@ -10,6 +10,8 @@ class UsersController < ApplicationController
   def show
     @films = current_user.films
     @photosets = flickr.photosets.getList(user_id: current_user.uid)
+    @firstset = flickr.photosets.getList(user_id: current_user.uid).first
+    @firstsetphotos = flickr.photosets.getPhotos(photoset_id: @firstset.id).photo
   end
 
   def edit
