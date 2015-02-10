@@ -12,10 +12,6 @@ class User < ActiveRecord::Base
   attr_accessor :flickr_access_token, :flickr_access_secret
 
 
-  # Example
-  # has_many :x_matches, class_name:'Match', foreign_key: :player_x_id     
-  
-
   def self.from_omniauth(auth)
     if user = User.find_by_flickr_name(auth.info.name)
       user.provider = auth.provider

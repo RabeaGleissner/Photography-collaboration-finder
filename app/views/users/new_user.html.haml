@@ -2,14 +2,14 @@
 
 %p If you would like to be notified by email about any film swap partner matches, please enter your email below.
 
-%form{method: :post, action: "/update"}
-  %input{type: :text, placeholder: "Enter email", name: :email}
-
-
-  %br
+/ = form_tag user_path, method: :put do
+= form_for @user, url: user_path do |f|
+  = f.text_field :email
   %p You can always add it to your user profile later.
   %p Your availability for a film swap is automatically set to available. If you would like to change it now, please feel free. You can also change it in your profile.
-  %input{value: :true, type: "radio", name: :availability} Available
-  %input{value: :false, type: "radio", name: :availability} Unavailable
-  = tag(:input, :type => "hidden", :name => request_forgery_protection_token.to_s, :value => form_authenticity_token)
-  %input{type: :submit, value: :Continue} 
+  = f.radio_button 'availability', 'true'
+  = f.label :availability, 'available'
+  = f.radio_button 'availability', 'false'
+  = f.label :availability, 'unavailable'
+  = f.submit "Continue"
+ 
