@@ -1,1 +1,18 @@
 %h1 Edit your profile
+
+= form_for(@user, url: user_path) do |f|
+  
+  %div
+    = f.label :location, 'Location'
+    = f.text_field :location
+  %div
+    = f.label :film_types, 'Film types'
+  %div
+    = f.label 'Your availability'
+  %div
+    = f.radio_button 'availability', 'true'
+    = f.label :availability, 'available'
+    = f.radio_button 'availability', 'false'
+    = f.label :availability, 'unavailable'
+  %div
+    = f.submit "Update"
