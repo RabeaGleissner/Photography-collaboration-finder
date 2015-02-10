@@ -25,12 +25,15 @@ class User < ActiveRecord::Base
         user.location = auth.info.location._content
         user.profileurl = auth.extra.raw_info.person.profileurl._content
         user.image = auth.info.image
-        user.email = "#{rand(1000)}@#{rand(121212)}.com"
+        # user.email = "#{rand(1000)}@#{rand(121212)}.com"
         user.password = Devise.friendly_token[0,20]
       end
     end
   end
-
+  
+def email_required?
+  false
+end
 
   # def last_ten
   #   flickr.
