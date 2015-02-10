@@ -8,9 +8,9 @@
   %body
     .login
     - if current_user
-      = current_user.flickr_name
+      = link_to current_user.flickr_name, user_path(current_user.id)
       = current_user.email
-      = image_tag current_user.image
+      = link_to image_tag(current_user.image), user_path(current_user.id)
       | 
       = link_to "Log out", destroy_user_session_path, method: :delete
     - else
