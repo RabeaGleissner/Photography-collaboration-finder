@@ -13,12 +13,13 @@ class UsersController < ApplicationController
   end
 
   def edit
+    @films = Film.all
     @user = current_user
   end
 
   def update
     current_user.update(user_params)
-    redirect_to users_path
+    redirect_to user_path(current_user.id)
   end
 
   def new_user
@@ -39,7 +40,7 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:email, :flickr_name, :location, :uid, :provider, :availability, :image)
+    params.require(:user).permit(:email, :flickr_name, :location, :uid, :provider, :availability, :image, {film_ids: []})
   end
 
 end

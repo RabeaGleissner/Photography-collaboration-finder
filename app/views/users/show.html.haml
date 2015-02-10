@@ -5,8 +5,10 @@
 
 
 - if @films.any?
-  @films.each do |film|
-  = film.format
+  - @films.each do |film|
+    %ul
+      %li
+        = film.format
 - else
   = "You haven't added any films!" 
   = link_to "Add some films", edit_user_path(current_user.id)
