@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   
   has_many :collaborations, foreign_key: :collaborator1_id   
   has_many :collaborations, foreign_key: :collaborator2_id 
-  has_many :films
+  has_many :films, dependent: :destroy
 
   attr_accessor :flickr_access_token, :flickr_access_secret
 
@@ -25,12 +25,11 @@ class User < ActiveRecord::Base
         user.location = auth.info.location._content
         user.profileurl = auth.extra.raw_info.person.profileurl._content
         user.image = auth.info.image
-        # user.email = "#{rand(1000)}@#{rand(121212)}.com"
         user.password = Devise.friendly_token[0,20]
       end
     end
   end
-  
+
 def email_required?
   false
 end

@@ -1,11 +1,15 @@
 %h1 User profile page
 
+= image_tag(current_user.image)
 %p Location: #{current_user.location}
 
 
-/ - if @films.any?
-/   @films.each do |film|
-/   = film.format
+- if @films.any?
+  @films.each do |film|
+  = film.format
+- else
+  = "You haven't added any films!" 
+  = link_to "Add some films", edit_user_path(current_user.id)
 
 
 
@@ -14,3 +18,5 @@
 - else
   - availability = "currently not available for film swaps"
 %p Availability: #{availability}
+
+= link_to "Edit your profile", edit_user_path(current_user.id)

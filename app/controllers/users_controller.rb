@@ -8,7 +8,6 @@ class UsersController < ApplicationController
   end
 
   def show
-    
     @films = current_user.films
     @photos = current_user.flickr.photosets.getPhotos(photoset_id: '72157626714345858').photo
   end
