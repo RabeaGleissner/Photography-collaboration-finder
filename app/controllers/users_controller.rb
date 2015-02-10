@@ -9,7 +9,7 @@ class UsersController < ApplicationController
 
   def show
     @films = current_user.films
-    @photos = current_user.flickr.photosets.getPhotos(photoset_id: '72157626714345858').photo
+    @photosets = flickr.photosets.getList(user_id: current_user.uid)
   end
 
   def edit
@@ -23,7 +23,7 @@ class UsersController < ApplicationController
   end
 
   def new_user
-    # current_user.update(user_params)
+  
   end
 
   def gallery
@@ -35,6 +35,7 @@ class UsersController < ApplicationController
   end
 
   private
+
   def set_user
     @user = User.find(params[:id])
   end

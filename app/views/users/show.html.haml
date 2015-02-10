@@ -14,11 +14,16 @@
   = link_to "Add some films", edit_user_path(current_user.id)
 
 
-
 - if current_user.availability == true
   - availability = "available for film swaps"
 - else
   - availability = "currently not available for film swaps"
 %p Availability: #{availability}
+
+%p Your photos sets
+- @photosets.each do |set|
+  %ul
+    %li
+      = set.title  
 
 = link_to "Edit your profile", edit_user_path(current_user.id)
