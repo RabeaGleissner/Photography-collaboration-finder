@@ -28,6 +28,7 @@ class User < ActiveRecord::Base
         user.profileurl = auth.extra.raw_info.person.profileurl._content
         user.image = auth.info.image
         user.password = Devise.friendly_token[0,20]
+        user.role = :user
       end
     end
   end

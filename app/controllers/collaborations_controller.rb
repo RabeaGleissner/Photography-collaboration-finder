@@ -1,4 +1,5 @@
 class CollaborationsController < ApplicationController
+  load_and_authorize_resource
   
   def index
     @collaborations = Collaboration.all
