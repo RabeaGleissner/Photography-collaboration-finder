@@ -9,3 +9,10 @@
   %div
     = f.submit "Find partner!"
  
+%h3 For admin users
+%h2 List of all users
+
+- @users.each do |user|
+  %ul
+    %li
+      = user.flickr_name
