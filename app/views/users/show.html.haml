@@ -20,17 +20,19 @@
   - availability = "currently not available for film swaps"
 %p Availability: #{availability}
 
-%p Your photos sets
-- @photosets.each do |set|
-  %ul
-    %li
-      = set.title  
+- if @photosets
+  %p Your photos sets
+  - @photosets.each do |set|
+    %ul
+      %li
+        = set.title  
 
-%p Photos from your first Flickr set
-- @firstsetphotos.each do |photo|
-  %ul
-    %li
-      - info = flickr.photos.getInfo(photo_id: photo.id)
-      = image_tag FlickRaw.url_z(info)
+- if @firstsetphotos
+  %p Photos from your first Flickr set
+  - @firstsetphotos.each do |photo|
+    %ul
+      %li
+        - info = flickr.photos.getInfo(photo_id: photo.id)
+        = image_tag FlickRaw.url_z(info)
 
 = link_to "Edit your profile", edit_user_path(@user.id)

@@ -6,11 +6,12 @@ class CollaborationsController < ApplicationController
   end
   
   def new
-    users = User.excluding(current_user).joins(:films).where(films: { id: params[:film_ids]})
-    user = users.sample
+    users = User.excluding(current_user).where(availability: true).joins(:films).where(films: { id: params[:film_ids]})
+    @user = users.sample
 
-    if user
-
+    if @user
+      @collaboration = Collaboration.new(collaborator1_id: current_user.id, collaborator2_id: @user.id)
+      @collaboration.save
       redirect_to user
     else
       flash[:notice] = "There were no users that matched your search"

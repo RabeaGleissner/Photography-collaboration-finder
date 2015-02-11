@@ -12,9 +12,11 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @films = @user.films
+    if @user.uid
     @photosets = flickr.photosets.getList(user_id: @user.uid)
     @firstset = flickr.photosets.getList(user_id: @user.uid).first
     @firstsetphotos = flickr.photosets.getPhotos(photoset_id: @firstset.id, privacy_filter: 1).photo
+  end
   end
 
   def edit
