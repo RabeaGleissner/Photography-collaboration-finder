@@ -14,9 +14,6 @@
       | 
       = link_to "Log out", destroy_user_session_path, method: :delete
     - else
-      = link_to "Sign In", new_user_session_path
-      = link_to "Register", new_user_registration_path
-      or
       = link_to "Sign in with Flickr", user_omniauth_authorize_path(:flickr)
     %p.notice= notice
     %p.alert= alert
@@ -31,5 +28,7 @@
             = link_to "Tips for good doubles", tips_path
             - if can? :read, Collaboration
               = link_to "List of all collaborations", collaborations_path
-
     = yield
+    %footer
+      - if !current_user
+        = link_to "Admin login", new_user_session_path

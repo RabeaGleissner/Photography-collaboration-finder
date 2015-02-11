@@ -13,11 +13,12 @@
     = f.collection_check_boxes :film_ids, @films, :id, :format, {},{:multiple => true, name: 'film_ids[]'} 
   %div
     = f.submit "Find partner!"
- 
-%h3 For admin users
-%h2 List of all users
 
-- @users.each do |user|
-  %ul
-    %li
-      = user.flickr_name
+- if can? :manage, Collaboration
+  %h3 For admin users
+  %h2 List of all users
+
+  - @users.each do |user|
+    %ul
+      %li
+        = user.flickr_name

@@ -2,12 +2,11 @@ class UsersController < ApplicationController
   before_action :authenticate_user!
   before_action :set_user, only: [:new_user, :show]
   load_and_authorize_resource
-  
+
   def index
     @user = current_user
     @users = User.all
     @films = Film.all
-
   end
 
   def show
