@@ -8,8 +8,7 @@ class Ability
         can :manage, :all
       else
         can :read, User
-        can :read, Home
-        can :update, User, id: user.id 
+        can :edit, User, id: user.id
         can :destroy, User, id: user.id
         can :create, Collaboration
       end
