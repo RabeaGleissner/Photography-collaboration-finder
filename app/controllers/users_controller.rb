@@ -3,15 +3,17 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:new_user, :show]
 
   def index
+    @user = current_user
     @users = User.all
     @films = Film.all
 
   end
 
   def show
-    @films = current_user.films
-    @photosets = flickr.photosets.getList(user_id: current_user.uid)
-    @firstset = flickr.photosets.getList(user_id: current_user.uid).first
+    @user = User.find(params[:id])
+    @films = @user.films
+    @photosets = flickr.photosets.getList(user_id: @user.uid)
+    @firstset = flickr.photosets.getList(user_id: @user.uid).first
     @firstsetphotos = flickr.photosets.getPhotos(photoset_id: @firstset.id, privacy_filter: 1).photo
   end
 
@@ -24,6 +26,7 @@ class UsersController < ApplicationController
     current_user.update(user_params)
     redirect_to user_path(current_user.id)
   end
+
 
   def new_user
   

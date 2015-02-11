@@ -11,6 +11,8 @@ class User < ActiveRecord::Base
 
   attr_accessor :flickr_access_token, :flickr_access_secret
 
+  scope :excluding, -> (*users) { where(["users.id NOT IN (?)", (users.flatten.compact.map(&:id) << 0)]) }
+
 
   def self.from_omniauth(auth)
     if user = User.find_by_flickr_name(auth.info.name)

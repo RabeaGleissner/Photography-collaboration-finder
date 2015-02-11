@@ -1,7 +1,7 @@
 %h1 User profile page
 
-= image_tag(current_user.image)
-%p Location: #{current_user.location}
+= image_tag(@user.image)
+%p Location: #{@user.location}
 
 
 - if @films.any?
@@ -11,10 +11,10 @@
         = film.format
 - else
   = "You haven't added any films!" 
-  = link_to "Add some films", edit_user_path(current_user.id)
+  = link_to "Add some films", edit_user_path(@user.id)
 
 
-- if current_user.availability == true
+- if @user.availability == true
   - availability = "available for film swaps"
 - else
   - availability = "currently not available for film swaps"
@@ -33,4 +33,4 @@
       - info = flickr.photos.getInfo(photo_id: photo.id)
       = image_tag FlickRaw.url_z(info)
 
-= link_to "Edit your profile", edit_user_path(current_user.id)
+= link_to "Edit your profile", edit_user_path(@user.id)

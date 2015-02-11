@@ -2,10 +2,10 @@
 
 %p Which film format do you want to use for your collaboration?
 
-%select
-  %option{value: "35mm"} 35mm
-  %option{value: "120"} 120
-  %option{value: "220"} 220
-
-= submit_tag "Go!"
+= form_for(@user, id: :match, url: new_collaboration_path, method: :get ) do |f|
+  %div
+    = f.label :film_types, 'Film types'
+    = f.collection_check_boxes :film_ids, @films, :id, :format, {},{:multiple => true, name: 'film_ids[]'} 
+  %div
+    = f.submit "Find partner!"
  
