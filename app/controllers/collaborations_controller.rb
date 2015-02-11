@@ -1,7 +1,8 @@
 class CollaborationsController < ApplicationController
   
   def index
-    
+    @collaborations = Collaboration.all
+    @users = User.all
   end
   
   def new
@@ -9,6 +10,7 @@ class CollaborationsController < ApplicationController
     user = users.sample
 
     if user
+
       redirect_to user
     else
       flash[:notice] = "There were no users that matched your search"

@@ -14,8 +14,5 @@ Rails.application.routes.draw do
   end
 
   resources :collaborations
-  
-  # get '/new_user', to: 'users#new_user'
-  # post '/update', to: 'users#update'
-  
+
 end

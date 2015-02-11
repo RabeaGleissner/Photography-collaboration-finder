@@ -1,2 +1,25 @@
 %h1 List of all collaboration partners
 %p Visible to admin user only
+
+- @collaborations.each do |collaboration|
+  %table
+    %thead
+      %tr
+        %th
+          Collaborator 1
+        %th
+          vs
+        %th
+          Collaborator 2
+        %th
+          Created at
+    %tbody
+      %tr
+        %td
+          = @users.find(collaboration.collaborator1_id).flickr_name
+        %td
+          vs
+        %td
+          = @users.find(collaboration.collaborator2_id).flickr_name
+        %td
+          = collaboration.created_at
