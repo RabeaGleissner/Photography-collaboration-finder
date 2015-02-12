@@ -17,4 +17,9 @@
     = f.radio_button 'availability', 'false'
     = f.label :availability, 'unavailable'
   %div
+    - @photosets.each do |set|
+      = f.label set.title
+      = f.collection_check_boxes set.id, @album_ids, :flickr_id, {}
+      
+  %div
     = f.submit "Update"

@@ -12,6 +12,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @films = @user.films
+    @album_ids = @user.albums.flickr_id
     if @user.uid
     @photosets = flickr.photosets.getList(user_id: @user.uid)
     @firstset = flickr.photosets.getList(user_id: @user.uid).first
