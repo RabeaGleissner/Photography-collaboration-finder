@@ -11,10 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150211194248) do
+ActiveRecord::Schema.define(version: 20150212203342) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "albums", force: true do |t|
+    t.string   "title"
+    t.integer  "flickr_id"
+    t.text     "description"
+    t.integer  "photo_count"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "collaborations", force: true do |t|
     t.integer  "collaborator1_id"
@@ -33,6 +42,14 @@ ActiveRecord::Schema.define(version: 20150211194248) do
   create_table "films_users", id: false, force: true do |t|
     t.integer "user_id", null: false
     t.integer "film_id", null: false
+  end
+
+  create_table "photos", force: true do |t|
+    t.string   "title"
+    t.integer  "flickr_id"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", force: true do |t|

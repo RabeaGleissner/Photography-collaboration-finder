@@ -22,6 +22,9 @@ class UsersController < ApplicationController
   def edit
     @films = Film.all
     @user = current_user
+    if @user.uid
+    @photosets = flickr.photosets.getList(user_id: @user.uid)
+  end
   end
 
   def update
