@@ -9,7 +9,7 @@
     = f.label :film_types, 'Film types'
   %div
     = f.collection_check_boxes :film_ids, @films, :id, :format, {},{:multiple => true} 
-
+/ Film types not visible on Heroku
   %div
     = f.label 'Your availability'
   %div
@@ -17,10 +17,11 @@
     = f.label :availability, 'available'
     = f.radio_button 'availability', 'false'
     = f.label :availability, 'unavailable'
-  %div
-    = f.label :albums
-  %div
-    = f.collection_check_boxes :albums, @photosets, :id, :title, {}
+  - if @photosets
+    %div
+      = f.label :albums
+    %div
+      = f.collection_check_boxes :albums, @photosets, :id, :title, {}
       
   %div
     = f.submit "Update"

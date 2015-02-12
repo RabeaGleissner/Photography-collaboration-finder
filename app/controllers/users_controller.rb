@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
   before_action :set_user, only: [:new_user, :show]
+  # before_filter :gallery, :only => :read
   load_and_authorize_resource
 
   def index
@@ -41,11 +42,11 @@ class UsersController < ApplicationController
   end
 
   def gallery
-    
+    authorize! :read, @user
   end
 
   def tips
-    
+    authorize! :read
   end
 
   private
