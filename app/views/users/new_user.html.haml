@@ -11,5 +11,8 @@
   = f.label :availability, 'available'
   = f.radio_button 'availability', 'false'
   = f.label :availability, 'unavailable'
+  %p We're automatically setting your location from your details on Flickr. If you want to change this, please update your location here.
+  = f.text_field :location
+  %div
   = f.submit "Continue"
  

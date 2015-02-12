@@ -21,7 +21,9 @@
 %p Availability: #{availability}
 
 - if @photosets
-  %p Your photos sets
+  %p These are your photosets. If you would like to show some of your Flickr photos on your profile, select a set and choose photos from it.
+
+  
   - @photosets.each do |set|
     %ul
       %li

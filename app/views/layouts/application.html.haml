@@ -29,6 +29,7 @@
             - if can? :read, Collaboration
               = link_to "List of all collaborations", collaborations_path
     = yield
+
     %footer
       - if !current_user
         = link_to "Admin login", new_user_session_path
