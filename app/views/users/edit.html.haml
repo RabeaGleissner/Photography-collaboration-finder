@@ -7,6 +7,7 @@
     = f.text_field :location
   %div
     = f.label :film_types, 'Film types'
+  %div
     = f.collection_check_boxes :film_ids, @films, :id, :format, {},{:multiple => true} 
 
   %div
@@ -17,9 +18,9 @@
     = f.radio_button 'availability', 'false'
     = f.label :availability, 'unavailable'
   %div
-    - @photosets.each do |set|
-      = f.label set.title
-      = f.collection_check_boxes set.id, @album_ids, :flickr_id, {}
+    = f.label :albums
+  %div
+    = f.collection_check_boxes :albums, @photosets, :id, :title, {}
       
   %div
     = f.submit "Update"

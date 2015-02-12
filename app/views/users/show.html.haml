@@ -38,3 +38,12 @@
 
 - if can? :edit, @user
   = link_to "Edit your profile", edit_user_path(@user.id)
+
+/ Pseudo code
+/ display user's first 20 photosets
+/ user can choose 1 set
+/ set id is saved in album table
+/ display first 20 photos of that 1 set
+/ user can select 4 photos to display on their profile from that set
+/ save 4 chosen photos' ids in photo table
+

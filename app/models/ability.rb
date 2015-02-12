@@ -9,6 +9,7 @@ class Ability
       elsif user.role?('user')
         can :read, User
         can :edit, User, id: user.id
+        can :update, User, id: user.id
         can :destroy, User, id: user.id
         can :create, Collaboration
       end
