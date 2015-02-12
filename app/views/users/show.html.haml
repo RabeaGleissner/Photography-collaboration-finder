@@ -35,6 +35,5 @@
         - info = flickr.photos.getInfo(photo_id: photo.id)
         = image_tag FlickRaw.url_z(info)
 
-/ TODO, fix this. should be only visible for own user account.
-- if can? :edit, User
+- if can? :edit, @user
   = link_to "Edit your profile", edit_user_path(@user.id)
