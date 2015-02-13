@@ -7,6 +7,14 @@ class HomeController < ApplicationController
 
   end
 
+  def gallery
+    authorize! :gallery, :home
+  end
+
+  def tips
+    authorize! :tips, :home
+  end
+
   def about
 
   end

@@ -12,6 +12,8 @@ class Ability
         can :update, User, id: user.id
         can :destroy, User, id: user.id
         can :create, Collaboration
+        can :gallery, :home
+        can :tips, :home
       end
     # Define abilities for the passed in user here. For example:
     #

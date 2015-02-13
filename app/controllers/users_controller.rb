@@ -41,13 +41,7 @@ class UsersController < ApplicationController
   
   end
 
-  def gallery
-    authorize! :read, @user
-  end
 
-  def tips
-    authorize! :read
-  end
 
   private
 
