@@ -15,17 +15,20 @@ class UsersController < ApplicationController
 
     if @user.uid
     @photosets = flickr.photosets.getList(user_id: @user.uid)
+    @selected_set = flickr.photosets.getList(user_id: @user.uid, id: @user.album.flickr_id)
 
-    @selected_set_photos = flickr.photosets.getPhotos(photoset_id: @user.album.flickr_id, privacy_filter: '1').photo.first(10)
+    @first_10_selected_set_photos = flickr.photosets.getPhotos(photoset_id: @user.album.flickr_id, privacy_filter: '1').photo.first(10)
 
-    @firstset = flickr.photosets.getList(user_id: @user.uid).first
-    @firstsetphotos = flickr.photosets.getPhotos(photoset_id: @firstset.id, privacy_filter: 1).photo
+    @selected_set_photos = flickr.photosets.getPhotos(photoset_id: @user.album.flickr_id, privacy_filter: '1').photo
     end
   end
 
   def edit
     @films = Film.all
     @user = User.find(params[:id])
+
+    @all_selected_set_photos = flickr.photosets.getPhotos(photoset_id: @user.album.flickr_id, privacy_filter: '1').photo
+
     if @user.uid
     @photosets = flickr.photosets.getList(user_id: @user.uid)
     end
@@ -56,7 +59,8 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:email, :flickr_name, :location, :uid, :provider, :availability, :image, {film_ids: []},
-      {album_attributes: [:id, :flickr_id]}
+      {album_attributes: [:id, :flickr_id]},
+      {photo_attributes: [:id, :flickr_id]}
       )
   end
 

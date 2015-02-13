@@ -7,9 +7,9 @@ class User < ActiveRecord::Base
   has_many :collaborations, foreign_key: :collaborator2_id 
   has_and_belongs_to_many :films, dependent: :destroy
   has_one :album
-  has_many :photos, through: :albums
+  has_many :photos, through: :album
 
-  accepts_nested_attributes_for :album
+  accepts_nested_attributes_for :album, :photos
 
   after_initialize :populate_album
 

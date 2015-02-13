@@ -20,17 +20,11 @@
   - availability = "currently not available for film swaps"
 %p Availability: #{availability}
 
-/ - if @photosets
-/   %p These are your photosets. If you would like to show some of your Flickr photos on your profile, select a set and choose photos from it.
-
-/   - @photosets.each do |set|
-/     %ul
-/       %li
-/         = set.title  
 
 - if @user.album
-  %p Photos from your first Flickr set
-  - @selected_set_photos.each do |photo|
+  %p Photos from your Flickr set called:
+  = @selected_set.first.title
+  - @first_10_selected_set_photos.each do |photo|
     %ul
       %li
         - info = flickr.photos.getInfo(photo_id: photo.id)
