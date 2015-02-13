@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
   before_action :set_user, only: [:new_user, :show]
-  # before_filter :gallery, :only => :read
   load_and_authorize_resource
 
   def index
@@ -16,6 +15,9 @@ class UsersController < ApplicationController
 
     if @user.uid
     @photosets = flickr.photosets.getList(user_id: @user.uid)
+
+    @selected_set_photos = flickr.photosets.getPhotos(photoset_id: @user.album.flickr_id, privacy_filter: '1').photo.first(10)
+
     @firstset = flickr.photosets.getList(user_id: @user.uid).first
     @firstsetphotos = flickr.photosets.getPhotos(photoset_id: @firstset.id, privacy_filter: 1).photo
     end

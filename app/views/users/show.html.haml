@@ -20,21 +20,21 @@
   - availability = "currently not available for film swaps"
 %p Availability: #{availability}
 
-- if @photosets
-  %p These are your photosets. If you would like to show some of your Flickr photos on your profile, select a set and choose photos from it.
+/ - if @photosets
+/   %p These are your photosets. If you would like to show some of your Flickr photos on your profile, select a set and choose photos from it.
 
-  - @photosets.each do |set|
-    %ul
-      %li
-        = set.title  
+/   - @photosets.each do |set|
+/     %ul
+/       %li
+/         = set.title  
 
-- if @firstsetphotos
+- if @user.album
   %p Photos from your first Flickr set
-  - @firstsetphotos.each do |photo|
+  - @selected_set_photos.each do |photo|
     %ul
       %li
         - info = flickr.photos.getInfo(photo_id: photo.id)
-        = image_tag FlickRaw.url_z(info)
+        = image_tag FlickRaw.url(info)
 
 - if can? :edit, @user
   = link_to "Edit your profile", edit_user_path(@user.id)
