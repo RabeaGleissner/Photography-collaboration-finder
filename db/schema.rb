@@ -11,14 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150212211012) do
+ActiveRecord::Schema.define(version: 20150213140805) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "albums", force: true do |t|
     t.string   "title"
-    t.integer  "flickr_id"
+    t.string   "flickr_id"
     t.text     "description"
     t.integer  "photo_count"
     t.datetime "created_at"
@@ -48,7 +48,7 @@ ActiveRecord::Schema.define(version: 20150212211012) do
 
   create_table "photos", force: true do |t|
     t.string   "title"
-    t.integer  "flickr_id"
+    t.string   "flickr_id"
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
