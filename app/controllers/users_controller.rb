@@ -12,8 +12,9 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @films = @user.films
-    @current_user_initiated_collaboration = Collaboration.find(collaborator1_id = current_user.id, collaborator2_id = @user.id)
-    @user_initiated_collaboration = Collaboration.find(collaborator1_id = @user.id, collaborator2_id = current_user.id)
+    # TODO: the below wuery will only return one record. Which query will return all records as an array? Collaboration.find returns an array but it's not an array when there's only one record.
+    @current_user_initiated_collaboration = Collaboration.where(collaborator1_id: current_user.id, collaborator2_id: @user.id)
+    @user_initiated_collaboration = Collaboration.where(collaborator1_id: @user.id, collaborator2_id: current_user.id)
 
     if @user.uid
     @photosets = flickr.photosets.getList(user_id: @user.uid)

@@ -6,16 +6,21 @@
       You were matched with
       = @user.flickr_name
       - from_time = Time.now 
-      / TODO: fix issue when there's only one collaboration or if there's an array of collaborations. 
-      - to_time = @user_initiated_collaboration.first.created_at
+      - to_time = @current_user_initiated_collaboration.first.created_at
       = distance_of_time_in_words(from_time, to_time)
     %div
       Contact them via Flickr messages now to arrange the details of your film swap.
+      = link_to "Message #{@user.flickr_name} through Flickr", "https://www.flickr.com/mail/write/?to=#{@user.uid}", target: '_blank'
+
   - elsif @user_initiated_collaboration
     %div
       = @user.flickr_name
       was matched with you on
+      - to_time = @user_initiated_collaboration.first.created_at
       = distance_of_time_in_words(from_time, to_time)
+    %div
+      They should have already contacted you by Flickr message. Otherwise, contact them now! 
+      = link_to "Message #{@user.flickr_name} through Flickr", "https://www.flickr.com/mail/write/?to=#{@user.uid}", target: '_blank'
     
 
 = image_tag(@user.image)
