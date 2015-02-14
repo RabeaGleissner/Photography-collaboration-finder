@@ -35,5 +35,6 @@
     = yield
 
     %footer
-      - if !current_user
-        = link_to "Admin login", new_user_session_path
+      %p This website was created by me Rabea Gleissner, during my Web Development bootcamp at General Assembly.
+    - if !current_user
+      = link_to "Admin login", new_user_session_path
