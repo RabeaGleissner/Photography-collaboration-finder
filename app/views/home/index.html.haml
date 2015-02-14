@@ -4,15 +4,6 @@
   #homepage_overlay
     %h1 Film swapsters
     %h3 Find a partner for your next double exposure project
-
-%p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla mollitia et, officia harum itaque voluptatum praesentium quod sapiente minus. Voluptatum illo distinctio ab numquam quod impedit ullam maxime, velit ratione!
-
-%h2 Gallery
-
-/ - @photos.each do |photo|
-/   %ul
-/     %li
-/       = photo.id
-/       - info = flickr.photos.getInfo(photo_id: photo.id)
-/       = image_tag FlickRaw.url_z(info)
+    %h3 
+      = link_to "Find out more", about_path
 

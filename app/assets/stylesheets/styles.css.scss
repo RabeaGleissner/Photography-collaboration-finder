@@ -11,7 +11,6 @@ body {
   }
 
   #homepage_image {
-
     width: 100%;
     margin: 0 auto;
   }
@@ -22,14 +21,14 @@ body {
 
   #homepage_overlay {
     max-width: 700px;
-    min-width:500px;
+    min-width:300px;
     min-height:100px;
     background-color: rgba(0, 0, 0, 0.3);
     position:fixed;
     top: 30%;
     left: 40%;
     margin-left: -270px;
-    border-radius:20%;
+    border-radius:30%;
 
    h1 {
         font-size: 3em;
@@ -43,14 +42,45 @@ body {
      font-weight: bold;
      text-align: center;
      font-size: 2em;
+     a {
+      color:white;
+     }
     }
 
     }
+
   }
+
+.login {
+  float:right;
+  padding-bottom: 0.5em;
+  padding-right:0.2em;
+}
 
   nav ul li {
     list-style:none;
+    padding-top: 2em;
+    a {
+      padding: 0.5em;
+    }
+
   }
+
+.wrapper {
+  width: 80%;
+  margin: 0 auto;
+
+  intro {
+    display:block;
+  }
+
+  .about {
+   max-width: 20%;
+   min-width: 15%;
+   display: inline-block;
+   vertical-align: top;
+  }
+}
 
 
 
