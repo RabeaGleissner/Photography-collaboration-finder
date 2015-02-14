@@ -1,8 +1,58 @@
-
 body {
   font-family: 'Raleway', sans-serif;
+  font-size: 16px;
+  
+  h1 {
+    font-size: 2em;
+  }
+
+  h2 {
+    font-size: 1.5em;
+  }
+
+  #homepage_image {
+
+    width: 100%;
+    margin: 0 auto;
+  }
+  
+
+  #homepage_container {
+    position: relative;
+
+  #homepage_overlay {
+    max-width: 700px;
+    min-width:500px;
+    min-height:100px;
+    background-color: rgba(0, 0, 0, 0.3);
+    position:fixed;
+    top: 30%;
+    left: 40%;
+    margin-left: -270px;
+    border-radius:20%;
+
+   h1 {
+        font-size: 3em;
+        font-family: 'Rock Salt', 'Raleway', sans-serif;
+        text-align: center;
+        color: white;
+        font-weight: bold;
+        }
+    h3 {
+     color:white;
+     font-weight: bold;
+     text-align: center;
+     font-size: 2em;
+    }
+
+    }
+  }
+
+  nav ul li {
+    list-style:none;
+  }
+
+
+
 }
 
-nav ul li {
-  list-style:none;
-}
