@@ -1,8 +1,25 @@
 %h1 User profile page
 
+- if current_user != @user
+  - if @current_user_initiated_collaboration
+    %div 
+      You were matched with
+      = @user.flickr_name
+      - from_time = Time.now 
+      / TODO: fix issue when there's only one collaboration or if there's an array of collaborations. 
+      - to_time = @user_initiated_collaboration.first.created_at
+      = distance_of_time_in_words(from_time, to_time)
+    %div
+      Contact them via Flickr messages now to arrange the details of your film swap.
+  - elsif @user_initiated_collaboration
+    %div
+      = @user.flickr_name
+      was matched with you on
+      = distance_of_time_in_words(from_time, to_time)
+    
+
 = image_tag(@user.image)
 %p Location: #{@user.location}
-
 
 - if @films.any?
   - @films.each do |film|
@@ -21,14 +38,14 @@
 %p Availability: #{availability}
 
 
-- if @user.album
-  %p Photos from your Flickr set called:
-  = @selected_set.first.title
-  - @first_10_selected_set_photos.each do |photo|
-    %ul
-      %li
-        - info = flickr.photos.getInfo(photo_id: photo.id)
-        = image_tag FlickRaw.url(info)
+/ - if @user.album
+/   %p Photos from your Flickr set called:
+/   = @selected_set.first.title
+/   - @first_10_selected_set_photos.each do |photo|
+/     %ul
+/       %li
+/         - info = flickr.photos.getInfo(photo_id: photo.id)
+/         = image_tag FlickRaw.url(info)
 
 - if can? :edit, @user
   = link_to "Edit your profile", edit_user_path(@user.id)

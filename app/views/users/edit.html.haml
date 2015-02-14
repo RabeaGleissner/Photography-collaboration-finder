@@ -28,16 +28,16 @@
 
     / TODO: Try saving all photo ids from the album in the database and then displaying the selection check boxes from the database rather than from flickr API directly
     / TODO: Use AJAX request - when album is selected to automatically display the photos of that album without reloading the page.
-    
+
     - @all_selected_set_photos.first(5).each do |photo|
       %ul
         %li
           - info = flickr.photos.getInfo(photo_id: photo.id)
           = image_tag FlickRaw.url_t(info)      
- 
+
           = f.fields_for Photo.new(flickr_id: photo.id) do |photos_f|
             %div
-              = photos_f.check_box :id, {}
+              = photos_f.check_box :id, {}, value: photo.id
 
 
 
