@@ -2,7 +2,9 @@
 %html
   %head
     %title Film swap app
+    %script{:src => "https://maps.googleapis.com/maps/api/js?key=AIzaSyD_vMG1zxUknrcc2TKE8NA7TCFeJj73d4o", :type => "text/javascript"}
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   %body
