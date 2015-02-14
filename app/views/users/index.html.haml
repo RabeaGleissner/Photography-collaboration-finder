@@ -1,24 +1,25 @@
-%h1 Start a collaboration with someone
+.wrapper
+  %h1 Start a collaboration with someone
 
-- if current_user.availability == false
-  %p Your availability is currently set to unavailable. You won't be able to start a collaboration if you don't change this.
-  = link_to "Edit your availability now", edit_user_path(id: current_user.id)
+  - if current_user.availability == false
+    %p Your availability is currently set to unavailable. You won't be able to start a collaboration if you don't change this.
+    = link_to "Edit your availability now", edit_user_path(id: current_user.id)
 
 
-%p Which film format do you want to use for your collaboration?
+  %p Which film format do you want to use for your collaboration?
 
-= form_for(@user, id: :match, url: new_collaboration_path, method: :get ) do |f|
-  %div
-    = f.label :film_types, 'Film types'
-    = f.collection_check_boxes :film_ids, @films, :id, :format, {},{:multiple => true, name: 'film_ids[]'} 
-  %div
-    = f.submit "Find partner!"
+  = form_for(@user, id: :match, url: new_collaboration_path, method: :get ) do |f|
+    %div
+      = f.label :film_types, 'Film types'
+      = f.collection_check_boxes :film_ids, @films, :id, :format, {},{:multiple => true, name: 'film_ids[]'} 
+    %div
+      = f.submit "Find partner!"
 
-- if can? :manage, Collaboration
-  %h3 For admin users
-  %h2 List of all users
+  - if can? :manage, Collaboration
+    %h3 For admin users
+    %h2 List of all users
 
-  - @users.each do |user|
-    %ul
-      %li
-        = user.flickr_name
+    - @users.each do |user|
+      %ul
+        %li
+          = user.flickr_name

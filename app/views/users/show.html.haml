@@ -1,66 +1,67 @@
-%h1 User profile page
+.wrapper
+  %h1 User profile page
 
-- if current_user != @user
-  - if @current_user_initiated_collaboration
-    %div 
-      You were matched with
-      = @user.flickr_name
-      - from_time = Time.now 
-      - to_time = @current_user_initiated_collaboration.first.created_at
-      = distance_of_time_in_words(from_time, to_time)
-    %div
-      Contact them via Flickr messages now to arrange the details of your film swap.
-      = link_to "Message #{@user.flickr_name} through Flickr", "https://www.flickr.com/mail/write/?to=#{@user.uid}&message=test", target: '_blank'
-      / trying to pass URL params to pre-populate the fields. is there another way or does it just not work at all?
+  - if current_user != @user
+    - if @current_user_initiated_collaboration
+      %div 
+        You were matched with
+        = @user.flickr_name
+        - from_time = Time.now 
+        - to_time = @current_user_initiated_collaboration.first.created_at
+        = distance_of_time_in_words(from_time, to_time)
+      %div
+        Contact them via Flickr messages now to arrange the details of your film swap.
+        = link_to "Message #{@user.flickr_name} through Flickr", "https://www.flickr.com/mail/write/?to=#{@user.uid}&message=test", target: '_blank'
+        / trying to pass URL params to pre-populate the fields. is there another way or does it just not work at all?
 
-  - elsif @user_initiated_collaboration
-    %div
-      = @user.flickr_name
-      was matched with you on
-      - to_time = @user_initiated_collaboration.first.created_at
-      = distance_of_time_in_words(from_time, to_time)
-    %div
-      They should have already contacted you by Flickr message. Otherwise, contact them now! 
-      = link_to "Message #{@user.flickr_name} through Flickr", "https://www.flickr.com/mail/write/?to=#{@user.uid}", target: '_blank'
-    
+    - elsif @user_initiated_collaboration
+      %div
+        = @user.flickr_name
+        was matched with you on
+        - to_time = @user_initiated_collaboration.first.created_at
+        = distance_of_time_in_words(from_time, to_time)
+      %div
+        They should have already contacted you by Flickr message. Otherwise, contact them now! 
+        = link_to "Message #{@user.flickr_name} through Flickr", "https://www.flickr.com/mail/write/?to=#{@user.uid}", target: '_blank'
+      
 
-= image_tag(@user.image)
-%p Location: #{@user.location}
+  = image_tag(@user.image)
+  %p Location: #{@user.location}
 
-- if @films.any?
-  - @films.each do |film|
-    %ul
-      %li
-        = film.format
-- else
-  = "You haven't added any films!" 
-  = link_to "Add some films", edit_user_path(@user.id)
-
-
-- if @user.availability == true
-  - availability = "available for film swaps"
-- else
-  - availability = "currently not available for film swaps"
-%p Availability: #{availability}
+  - if @films.any?
+    - @films.each do |film|
+      %ul
+        %li
+          = film.format
+  - else
+    = "You haven't added any films!" 
+    = link_to "Add some films", edit_user_path(@user.id)
 
 
-/ - if @user.album
-/   %p Photos from your Flickr set called:
-/   = @selected_set.first.title
-/   - @first_10_selected_set_photos.each do |photo|
-/     %ul
-/       %li
-/         - info = flickr.photos.getInfo(photo_id: photo.id)
-/         = image_tag FlickRaw.url(info)
+  - if @user.availability == true
+    - availability = "available for film swaps"
+  - else
+    - availability = "currently not available for film swaps"
+  %p Availability: #{availability}
 
-- if can? :edit, @user
-  = link_to "Edit your profile", edit_user_path(@user.id)
 
-/ Pseudo code
-/ display user's first 20 photosets
-/ user can choose 1 set
-/ set id is saved in album table
-/ display first 20 photos of that 1 set
-/ user can select 4 photos to display on their profile from that set
-/ save 4 chosen photos' ids in photo table
+  / - if @user.album
+  /   %p Photos from your Flickr set called:
+  /   = @selected_set.first.title
+  /   - @first_10_selected_set_photos.each do |photo|
+  /     %ul
+  /       %li
+  /         - info = flickr.photos.getInfo(photo_id: photo.id)
+  /         = image_tag FlickRaw.url(info)
+
+  - if can? :edit, @user
+    = link_to "Edit your profile", edit_user_path(@user.id)
+
+  / Pseudo code
+  / display user's first 20 photosets
+  / user can choose 1 set
+  / set id is saved in album table
+  / display first 20 photos of that 1 set
+  / user can select 4 photos to display on their profile from that set
+  / save 4 chosen photos' ids in photo table
 

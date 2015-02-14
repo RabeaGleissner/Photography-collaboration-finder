@@ -16,6 +16,7 @@ gem 'geocoder'
 gem 'omniauth-flickr', '~> 0.0.15'
 gem 'flickraw', '~> 0.9.8'
 gem 'haml-rails'
+gem 'geocoder'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
