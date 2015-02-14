@@ -10,7 +10,8 @@
       = distance_of_time_in_words(from_time, to_time)
     %div
       Contact them via Flickr messages now to arrange the details of your film swap.
-      = link_to "Message #{@user.flickr_name} through Flickr", "https://www.flickr.com/mail/write/?to=#{@user.uid}", target: '_blank'
+      = link_to "Message #{@user.flickr_name} through Flickr", "https://www.flickr.com/mail/write/?to=#{@user.uid}&message=test", target: '_blank'
+      / trying to pass URL params to pre-populate the fields. is there another way or does it just not work at all?
 
   - elsif @user_initiated_collaboration
     %div
