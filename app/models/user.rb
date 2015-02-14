@@ -11,8 +11,9 @@ class User < ActiveRecord::Base
 
   accepts_nested_attributes_for :album, :photos
 
+  geocoded_by :location
+  after_validation :geocode, :if => :location_changed?
   after_initialize :populate_album
-
   attr_accessor :flickr_access_token, :flickr_access_secret
 
   scope :excluding, -> (*users) { where(["users.id NOT IN (?)", (users.flatten.compact.map(&:id) << 0)]) }
@@ -45,13 +46,13 @@ def role?(role_to_compare)
     self.role.to_s == role_to_compare.to_s
 end
 
-  # def last_ten
-  #   flickr.
-  # end
+def has_location?
+  [latitude, longitude].all?
+end
+
 
   def flickr
     return @flickr if @flickr
-
     @flickr = FlickRaw::Flickr.new
     @flickr.access_token = flickr_access_token
     @flickr.access_secret = flickr_access_secret

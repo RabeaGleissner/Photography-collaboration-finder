@@ -27,6 +27,7 @@
 
   = image_tag(@user.image)
   %p Location: #{@user.location}
+  #map-canvas
 
   - if @films.any?
     - @films.each do |film|
