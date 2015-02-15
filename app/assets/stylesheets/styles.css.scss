@@ -88,6 +88,22 @@ nav ul {
    display: inline-block;
    vertical-align: top;
  }
+
+}
+
+.flex_container { 
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: baseline;
+
+ .user_flickr_photos {
+  padding: 5px;
+  a {
+    display: block;
+  }
+ }
 }
 
 #map-canvas {
