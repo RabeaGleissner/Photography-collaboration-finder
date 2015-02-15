@@ -11,6 +11,7 @@ class Ability
         can :edit, User, id: user.id
         can :update, User, id: user.id
         can :destroy, User, id: user.id
+        can :new_user, User, id: user.id
         can :create, Collaboration
         can :gallery, :home
         can :tips, :home

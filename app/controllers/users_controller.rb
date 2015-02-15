@@ -49,7 +49,8 @@ class UsersController < ApplicationController
 
 
   def new_user
-  
+    @films = Film.all
+    @user = User.find(params[:id])
   end
 
 

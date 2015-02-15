@@ -3,7 +3,6 @@
 
   %p If you would like to be notified by email about any film swap partner matches, please enter your email below.
 
-  / = form_tag user_path, method: :put do
   = form_for @user, url: user_path do |f|
     = f.text_field :email
     %p You can always add it to your user profile later.
@@ -14,6 +13,11 @@
     = f.label :availability, 'unavailable'
     %p We're automatically setting your location from your details on Flickr. If you want to change this, please update your location here.
     = f.text_field :location
+    %p Which film formats to you shoot?
+    %div
+      = f.label :film_types, 'Film types'
+    %div
+      = f.collection_check_boxes :film_ids, @films, :id, :format, {},{:multiple => true} 
     %div
     = f.submit "Continue"
  
