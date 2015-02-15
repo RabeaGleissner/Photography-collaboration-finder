@@ -91,13 +91,27 @@ nav ul {
 }
 
 #map-canvas {
-  height:100px;
+  height:300px;
+  width:300px;
+  float: right;
+  display: inline-block;
+}
+
+.pool_photos {
+  display: inline-block;
+}
+
+.pool_photo_owner {
+  display: block;
+
 }
 
 footer {
   width: 80%;
   margin: 0 auto;
 }
+
+
 
 }
 

@@ -13,10 +13,11 @@ class HomeController < ApplicationController
 
   def tips
     authorize! :tips, :home
+
   end
 
   def about
-
+    @pool_photos = flickr.groups.pools.getPhotos(group_id: '1743197@N22').photo
   end
 
 

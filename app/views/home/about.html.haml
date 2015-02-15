@@ -17,3 +17,19 @@
   .about
     %h3 Step 4:
     %p Your partner develops the roll of film and posts it to our Flickr group so you can see the outcome.
+
+  %h2 The most recent additions to the Film swapsters group
+
+  - @pool_photos.first(10).each do |photo|
+    - info = flickr.photos.getInfo(photo_id: photo.id)
+    .pool_photos
+      = image_tag FlickRaw.url_m(info) 
+      .pool_photo_owner     
+        = link_to "by #{photo.ownername}", "https://www.flickr.com/photos/#{photo.owner}", target: "blank"
+  %button Click to see more
+
+  / - @pool_photos.first(10).each do |photo|
+  /   - info = flickr.photos.getInfo(photo_id: photo.id)
+  /   %div
+  /     = image_tag FlickRaw.url_m(info)      
+  /     = link_to "by #{photo.ownername}", "https://www.flickr.com/photos/#{photo.owner}", target: "blank"
