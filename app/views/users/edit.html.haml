@@ -24,7 +24,7 @@
         %div
           = album_f.collection_select :flickr_id, @photosets, :id, :title
     
-    - if @user.album
+    - if @user.album.flickr_id != ""
       %p Which photos from your selected album do you want to display?
 
       / TODO: Try saving all photo ids from the album in the database and then displaying the selection check boxes from the database rather than from flickr API directly
