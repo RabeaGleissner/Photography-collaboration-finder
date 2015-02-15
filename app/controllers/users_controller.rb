@@ -12,7 +12,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @films = @user.films
-    # TODO: the below wuery will only return one record. Which query will return all records as an array? Collaboration.find returns an array but it's not an array when there's only one record.
+    # TODO: the below query will only return one record. Which query will return all records as an array? Collaboration.find returns an array but it's not an array when there's only one record.
     @current_user_initiated_collaboration = Collaboration.where(collaborator1_id: current_user.id, collaborator2_id: @user.id)
     @user_initiated_collaboration = Collaboration.where(collaborator1_id: @user.id, collaborator2_id: current_user.id)
 
@@ -29,6 +29,7 @@ class UsersController < ApplicationController
   end
 
   def edit
+
     @films = Film.all
     @user = User.find(params[:id])
 
@@ -41,7 +42,6 @@ end
   end
 
   def update
-
     album = Album.new
     album.update(flickr_id: params[:albums])
     album.save

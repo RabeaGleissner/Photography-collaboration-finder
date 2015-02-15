@@ -38,14 +38,7 @@
 
             = f.fields_for Photo.new(flickr_id: photo.id) do |photos_f|
               %div
-                = photos_f.check_box :id, {}, value: photo.id
-
-
-
-
-
-
-
+                = photos_f.check_box :flickr_id, {}, value: photo.id
 
 
     %div

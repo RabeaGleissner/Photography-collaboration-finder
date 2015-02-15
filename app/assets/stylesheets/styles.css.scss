@@ -48,39 +48,41 @@ body {
   }
 }
 
-
-header {
-  background-color: grey;
-  display: inline-block;
-  // position:fixed;
-
   nav {
-    float:left;
+    // float:left;
+    // background-color: grey;
+    // display: inline-block;
+    border-bottom: 3px solid grey;
+
 
     ul {
       padding-left: 0em;
       list-style:none;
-    
+      display: inline-block;
 
       li {
         padding-top: 2em;
+        list-style:none;
 
         a {
           padding: 0.5em;
         }
 
         a:hover {
-          background-color: rgba(0, 0, 0, 0.1)
+          
         }
       }
     }
-  }
-  .login {
-    display: inline-block;
-    float:right;
-    text-align:right;
-    padding-bottom: 0.5em;
-    padding-right:0.2em;
+
+
+#login {
+ //  float: right;
+ // display: inline-block;
+position:fixed;
+right: 0px;
+    // text-align: right;
+    // // padding-bottom: 0.5em;
+    // // padding-right:0.2em;
   }
 }
 
@@ -99,6 +101,10 @@ header {
    vertical-align: top;
  }
 
+}
+
+#edit {
+  float: right;
 }
 
 .flex_container { 
@@ -140,7 +146,10 @@ footer {
   text-align: center;
 }
 
+input [type='submit'] {
+  padding: 15px;
 
+}
 
 }
 

@@ -1,5 +1,6 @@
 .wrapper
-  %h1 User profile page
+  %h1
+    = @user.flickr_name
 
   - if current_user != @user
     - if @current_user_initiated_collaboration
@@ -7,12 +8,11 @@
         You were matched with
         = @user.flickr_name
         - from_time = Time.now 
-        - to_time = @current_user_initiated_collaboration.first.created_at
-        = distance_of_time_in_words(from_time, to_time)
+        - to_time = @current_user_initiated_collaboration.last.created_at
+        = "#{distance_of_time_in_words(from_time, to_time)} ago"
       %div
         Contact them via Flickr messages now to arrange the details of your film swap.
-        = link_to "Message #{@user.flickr_name} through Flickr", "https://www.flickr.com/mail/write/?to=#{@user.uid}&message=test", target: '_blank'
-        / trying to pass URL params to pre-populate the fields. is there another way or does it just not work at all?
+        = link_to "Message #{@user.flickr_name} through Flickr", "https://www.flickr.com/mail/write/?to=#{@user.uid}", target: '_blank'
 
     - elsif @user_initiated_collaboration
       %div
@@ -23,15 +23,17 @@
       %div
         They should have already contacted you by Flickr message. Otherwise, contact them now! 
         = link_to "Message #{@user.flickr_name} through Flickr", "https://www.flickr.com/mail/write/?to=#{@user.uid}", target: '_blank'
-      
-  - if can? :edit, @user
-    = link_to "Edit your profile", edit_user_path(@user.id)
   
   = image_tag(@user.image)
   %p Location: #{@user.location}
   #map-canvas
 
+  - if can? :edit, @user
+    #edit
+      = link_to "Edit your profile", edit_user_path(@user.id)
+
   - if @films.any?
+    = "#{@user.flickr_name} shoots"
     - @films.each do |film|
       %ul
         %li
@@ -49,6 +51,7 @@
 
   .flex_container
   - if @user.album.flickr_id != ""
+    %h3 Photos from this user
     - @first_10_selected_set_photos.each do |photo|
       - info = flickr.photos.getInfo(photo_id: photo.id)
       = image_tag(FlickRaw.url_n(info), class: "user_flickr_photos")
