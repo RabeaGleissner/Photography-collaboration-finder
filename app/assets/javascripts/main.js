@@ -3,32 +3,41 @@ var myMap = myMap || {};
 var latitude;
 var longitude;
 
-$(document).ready(function() {
-
-  latitude = parseFloat($('#latitude').text());
-
-  longitude = parseFloat($('#longitude').text());
-
-  console.log(latitude);
-  console.log(longitude);
- });
-
 
 myMap.initialize = function() {
 
     var mapOptions = {
         center: { lat: latitude, lng: longitude},     
         zoom: 14,
-        mapTypeId:google.maps.MapTypeId.ROADMAP //default
+        // mapTypeId:google.maps.MapTypeId.ROADMAP 
     };
 
     var map = new google.maps.Map(myMap.mapCanvas, mapOptions);
 
-}
 
-$(function(){
-  $
+    // myMap.map = new google.maps.Map(myMap.mapElement, mapOptions);
+    var markerOptions = {
+      position: { lat: latitude, lng: longitude }
+    };
+
+    var marker = new google.maps.Marker(markerOptions);
+    marker.setMap(map);
+
+};
+
+$(document).ready(function() {
+
+  latitude = parseFloat($('#latitude').text());
+  longitude = parseFloat($('#longitude').text());
+
+  console.log(latitude);
+  console.log(longitude);
+
   myMap.mapCanvas = $('#map-canvas')[0];
   myMap.initialize();
-});
+
+
+ });
+
+
 
