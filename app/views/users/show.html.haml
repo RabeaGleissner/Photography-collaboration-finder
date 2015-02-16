@@ -26,6 +26,11 @@
   
   = image_tag(@user.image)
   %p Location: #{@user.location}
+  .hidden_fields
+    #latitude
+      = @user.latitude
+    #longitude 
+      = @user.longitude
   #map-canvas
 
   - if can? :edit, @user
@@ -52,7 +57,7 @@
   .flex_container
   - if @user.album.flickr_id != ""
     %h3 Photos from this user
-    - @users_selected_photos.each do |photo|
+    - @users_selected_photos.first(2).each do |photo|
       - info = flickr.photos.getInfo(photo_id: photo.flickr_id)
       = image_tag(FlickRaw.url_n(info), class: "user_flickr_photos")
   - elsif @user.album.flickr_id == ""
