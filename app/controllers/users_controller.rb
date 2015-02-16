@@ -41,12 +41,10 @@ end
   end
 
   def update
-    album = Album.new
-    album.update(flickr_id: params[:albums])
-    album.save
-
-    current_user.update(user_params)
-    redirect_to user_path(current_user.id)
+    @user.album.photos.destroy_all
+    params[:user][:album_attributes][:photos_attributes].delete_if { |_id, photo_attribute| photo_attribute[:flickr_id] == '0' } rescue nil
+    @user.update(user_params)
+    redirect_to user_path(@user.id)
   end
 
 
@@ -64,9 +62,9 @@ end
   end
 
   def user_params
-    params.require(:user).permit(:email, :flickr_name, :location, :uid, :provider, :availability, :image, {film_ids: []},
-      {album_attributes: [:id, :flickr_id]},
-      {photo_attributes: [:id, :flickr_id]}
+    params.require(:user).permit(:email, :flickr_name, :location, :uid, :provider, :availability, :image, {film_ids: [] },
+      {album_attributes: [:id, :flickr_id, { photos_attributes: [:id, :flickr_id] } ]
+      }
       )
   end
 

@@ -24,21 +24,22 @@
         %div
           = album_f.collection_select :flickr_id, @photosets, :id, :title
     
-    - if @user.album.flickr_id != ""
-      %p Which photos from your selected album do you want to display?
+        - if @user.album.flickr_id != ""
+          %p Which photos from your selected album do you want to display?
 
-      / TODO: Try saving all photo ids from the album in the database and then displaying the selection check boxes from the database rather than from flickr API directly
-      / TODO: Use AJAX request - when album is selected to automatically display the photos of that album without reloading the page.
+          / TODO: Try saving all photo ids from the album in the database and then displaying the selection check boxes from the database rather than from flickr API directly
+          / TODO: Use AJAX request - when album is selected to automatically display the photos of that album without reloading the page.
 
-      - @all_selected_set_photos.first(5).each do |photo|
-        %ul
-          %li
-            - info = flickr.photos.getInfo(photo_id: photo.id)
-            = image_tag FlickRaw.url_t(info)      
+          - @all_selected_set_photos.first(5).each do |photo|
+            %ul
+              %li
+                - info = flickr.photos.getInfo(photo_id: photo.id)
+                = image_tag FlickRaw.url_t(info)      
 
-            = f.fields_for Photo.new(flickr_id: photo.id) do |photos_f|
-              %div
-                = photos_f.check_box :flickr_id, {}, value: photo.id
+                = album_f.fields_for :photos, album_f.object.photos.new do |photos_f|
+                  - photos_f.object.flickr_id = photo.id if @user.photo_flickr_ids.include?(photo.id)
+                  %div
+                    = photos_f.check_box :flickr_id, {}, photo.id
 
 
     %div

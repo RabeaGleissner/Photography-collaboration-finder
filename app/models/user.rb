@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
   has_many :photos, through: :album
   validates :flickr_name, uniqueness: true
 
-  accepts_nested_attributes_for :album, :photos
+  accepts_nested_attributes_for :album
 
   geocoded_by :location
   after_validation :geocode, :if => :location_changed?
@@ -51,6 +51,10 @@ def has_location?
   [latitude, longitude].all?
 end
 
+
+def photo_flickr_ids
+  photos.map(&:flickr_id)
+end
 
   def flickr
     return @flickr if @flickr
