@@ -18,7 +18,7 @@
       %div
         = @user.flickr_name
         was matched with you on
-        - to_time = @user_initiated_collaboration.first.created_at
+        - to_time = @user_initiated_collaboration.last.created_at
         = distance_of_time_in_words(from_time, to_time)
       %div
         They should have already contacted you by Flickr message. Otherwise, contact them now! 
