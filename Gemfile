@@ -7,6 +7,7 @@ group :development, :test do
   gem 'pry-stack_explorer'
   gem 'meta_request'
   gem 'better_errors'
+  gem 'letter_opener'
 end
 
 gem 'devise'
