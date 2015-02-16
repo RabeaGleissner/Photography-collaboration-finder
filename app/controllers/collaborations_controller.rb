@@ -13,6 +13,8 @@ class CollaborationsController < ApplicationController
     if @user
       @collaboration = Collaboration.new(collaborator1_id: current_user.id, collaborator2_id: @user.id)
       @collaboration.save
+      if @collaboration.save
+        UserMailer.partner_alert(@user).deliver
       redirect_to user_path(@user.id)
     else
       flash[:notice] = "There were no users that matched your search"
