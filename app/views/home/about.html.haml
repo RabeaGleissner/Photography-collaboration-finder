@@ -21,10 +21,9 @@
   %h2 The most recent additions to the Film swapsters group
 
   .flex_container
-    - @pool_photos.first(10).each do |photo|
-      - info = flickr.photos.getInfo(photo_id: photo.id)
-      .user_flickr_photos
-        = image_tag FlickRaw.url_n(info)    
-        = link_to "by #{photo.ownername}", "https://www.flickr.com/photos/#{photo.owner}", target: "blank"
-
-  %button Click to see more
+    = render partial: "pool_photo", collection: @pool_photos
+     
+  = form_tag about_path, remote: :true, id: :more_photos, method: :get do 
+    = button_tag "See more"
+    = hidden_field_tag :page, @page+1, id: :page_param
+  

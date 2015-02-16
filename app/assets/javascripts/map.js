@@ -9,7 +9,6 @@ myMap.initialize = function() {
     var mapOptions = {
         center: { lat: latitude, lng: longitude},     
         zoom: 8,
-        // mapTypeId:google.maps.MapTypeId.ROADMAP 
     };
 
     var map = new google.maps.Map(myMap.mapCanvas, mapOptions);

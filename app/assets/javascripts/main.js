@@ -1,8 +1,8 @@
 $(function(){
 
-$('#wait_overlay').addClass('hidden');
+  $('#wait_overlay').addClass('hidden');
 
-console.log('loading main js')
+  console.log('loading main js')
 
   $('.edit_user').submit(function(ev){
     ev.preventDefault();
@@ -11,9 +11,22 @@ console.log('loading main js')
     
     $('#wait_overlay').removeClass('hidden');
 
-   this.submit();
+    this.submit();
 
-});
+  });
+
+  $('#more_photos').
+  on('ajax:success',function(evt, data, status, xhr){
+   $('.flex_container').append(data);
+  var new_page = parseInt($('#page_param').val())+1;
+  $('#page_param').val(new_page);
+  
+ }).
+  on('ajax:error',function(xhr, status, error){
+   console.log('failed:', error);
+ });
+
+
 
 
 });

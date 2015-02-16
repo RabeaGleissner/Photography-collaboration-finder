@@ -25,6 +25,7 @@ class UsersController < ApplicationController
     @users_selected_photos = @user.album.photos
 
     @selected_set_photos = flickr.photosets.getPhotos(photoset_id: @user.album.flickr_id, privacy_filter: '1').photo
+
     end
     end
   end
