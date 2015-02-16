@@ -52,8 +52,8 @@
   .flex_container
   - if @user.album.flickr_id != ""
     %h3 Photos from this user
-    - @first_10_selected_set_photos.each do |photo|
-      - info = flickr.photos.getInfo(photo_id: photo.id)
+    - @users_selected_photos.each do |photo|
+      - info = flickr.photos.getInfo(photo_id: photo.flickr_id)
       = image_tag(FlickRaw.url_n(info), class: "user_flickr_photos")
   - elsif @user.album.flickr_id == ""
     %p You can vamp up your profile by displaying some of your Flickr photos! 
