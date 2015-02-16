@@ -48,28 +48,21 @@
     = link_to "Add some films", edit_user_path(@user.id)
 
 
-  / - if @user.availability == true
-  /   - availability = "available for film swaps"
-  / - else
-  /   - availability = "currently not available for film swaps"
-  / %p Availability: #{availability}
+  - if @user.availability == true
+    - availability = "available for film swaps"
+  - else
+    - availability = "currently not available for film swaps"
+  %p Availability: #{availability}
 
-  / .flex_container
-  / - if @user.album.flickr_id != ""
-  /   %h3 Photos from this user
-  /   - @users_selected_photos.first(2).each do |photo|
-  /     - info = flickr.photos.getInfo(photo_id: photo.flickr_id)
-  /     = image_tag(FlickRaw.url_n(info), class: "user_flickr_photos")
-  / - elsif @user.album.flickr_id == ""
-  /   %p You can vamp up your profile by displaying some of your Flickr photos! 
-  /   = link_to "Yeah, let me add some pics!", edit_user_path(@user.id)
-  /   = link_to "No, thanks. My profile is fancy enough.", edit_user_path(@user.id)
+  .flex_container
+  - if @user.album.flickr_id != ""
+    %h3 Photos from this user
+    - @users_selected_photos.first(2).each do |photo|
+      - info = flickr.photos.getInfo(photo_id: photo.flickr_id)
+      = image_tag(FlickRaw.url_n(info), class: "user_flickr_photos")
+  - elsif @user.album.flickr_id == ""
+    %p You can vamp up your profile by displaying some of your Flickr photos! 
+    = link_to "Yeah, let me add some pics!", edit_user_path(@user.id)
+    = link_to "No, thanks. My profile is fancy enough.", edit_user_path(@user.id)
 
-  / Pseudo code
-  / display user's first 20 photosets
-  / user can choose 1 set
-  / set id is saved in album table
-  / display first 20 photos of that 1 set
-  / user can select 4 photos to display on their profile from that set
-  / save 4 chosen photos' ids in photo table
 

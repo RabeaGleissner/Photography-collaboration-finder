@@ -8,12 +8,15 @@
 
   %p Which film format do you want to use for your collaboration?
 
-  = form_for(@user, id: :match, url: new_collaboration_path, method: :get ) do |f|
+  = form_for(@user, id: :match, url: new_collaboration_path, method: :get, id: "match_form" ) do |f|
     %div
       = f.label :film_types, 'Film types'
       = f.collection_check_boxes :film_ids, @films, :id, :format, {},{:multiple => true, name: 'film_ids[]'} 
     %div
-      = f.submit "Find partner!"
+      = f.submit "Find partner!", id: "find_partner"
+
+  #wait_overlay.hidden
+    %p Please wait! Finding you a partner.
 
   - if can? :manage, Collaboration
     %h3 For admin users
