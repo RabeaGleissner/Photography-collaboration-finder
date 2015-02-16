@@ -22,6 +22,8 @@ class UsersController < ApplicationController
     if @user.album.flickr_id != ""
     @first_10_selected_set_photos = flickr.photosets.getPhotos(photoset_id: @user.album.flickr_id, privacy_filter: '1').photo.first(10)
 
+    # @users_photos = flickr.photosets.getPhotos(photoset_id: @user.album.flickr_id, privacy_filter: '1').photo.where(id: 
+# raise
     @selected_set_photos = flickr.photosets.getPhotos(photoset_id: @user.album.flickr_id, privacy_filter: '1').photo
     end
     end

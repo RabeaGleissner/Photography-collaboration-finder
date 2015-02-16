@@ -27,7 +27,6 @@
         - if @user.album.flickr_id != ""
           %p Which photos from your selected album do you want to display?
 
-          / TODO: Try saving all photo ids from the album in the database and then displaying the selection check boxes from the database rather than from flickr API directly
           / TODO: Use AJAX request - when album is selected to automatically display the photos of that album without reloading the page.
 
           - @all_selected_set_photos.first(5).each do |photo|
