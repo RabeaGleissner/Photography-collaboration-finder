@@ -26,15 +26,11 @@
     
         - if @user.album.flickr_id != ""
           %p Which photos from your selected album do you want to display?
-
-          / TODO: Use AJAX request - when album is selected to automatically display the photos of that album without reloading the page.
-
-          - @all_selected_set_photos.first(5).each do |photo|
-            %ul
-              %li
-                - info = flickr.photos.getInfo(photo_id: photo.id)
+          .flex_container
+            - @all_selected_set_photos.each do |photo|
+              - info = flickr.photos.getInfo(photo_id: photo.id)
+              .user_flickr_photos
                 = image_tag FlickRaw.url_t(info)      
-
                 = album_f.fields_for :photos, album_f.object.photos.new do |photos_f|
                   - photos_f.object.flickr_id = photo.id if @user.photo_flickr_ids.include?(photo.id)
                   %div
