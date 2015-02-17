@@ -9,6 +9,10 @@ class UsersController < ApplicationController
     @films = Film.all
   end
 
+  def list
+    
+  end
+
   def show
     @user = User.find(params[:id])
     @films = @user.films
@@ -16,17 +20,17 @@ class UsersController < ApplicationController
     @user_initiated_collaboration = Collaboration.where(collaborator1_id: @user.id, collaborator2_id: current_user.id)
 
     if @user.uid
-    @photosets = flickr.photosets.getList(user_id: @user.uid)
-    @selected_set = flickr.photosets.getList(user_id: @user.uid, id: @user.album.flickr_id)
-  
-    if @user.album.flickr_id != ""
-    @first_10_selected_set_photos = flickr.photosets.getPhotos(photoset_id: @user.album.flickr_id, privacy_filter: '1').photo.first(10)
+      @photosets = flickr.photosets.getList(user_id: @user.uid)
+      @selected_set = flickr.photosets.getList(user_id: @user.uid, id: @user.album.flickr_id)
 
-    @users_selected_photos = @user.album.photos
+      if @user.album.flickr_id != ""
+        @first_10_selected_set_photos = flickr.photosets.getPhotos(photoset_id: @user.album.flickr_id, privacy_filter: '1').photo.first(10)
 
-    @selected_set_photos = flickr.photosets.getPhotos(photoset_id: @user.album.flickr_id, privacy_filter: '1').photo
+        @users_selected_photos = @user.album.photos
 
-    end
+        @selected_set_photos = flickr.photosets.getPhotos(photoset_id: @user.album.flickr_id, privacy_filter: '1').photo
+
+      end
     end
   end
 
@@ -35,11 +39,11 @@ class UsersController < ApplicationController
     @films = Film.all
     @user = User.find(params[:id])
 
-  if @user.album.flickr_id != ""
-    @all_selected_set_photos = flickr.photosets.getPhotos(photoset_id: @user.album.flickr_id, privacy_filter: '1').photo
-end
+    if @user.album.flickr_id != ""
+      @all_selected_set_photos = flickr.photosets.getPhotos(photoset_id: @user.album.flickr_id, privacy_filter: '1').photo
+    end
     if @user.uid
-    @photosets = flickr.photosets.getList(user_id: @user.uid)
+      @photosets = flickr.photosets.getList(user_id: @user.uid)
     end
   end
 
@@ -50,6 +54,10 @@ end
     redirect_to user_path(@user.id)
   end
 
+  def update_new_user
+    @user.update(user_params)
+    redirect_to @user
+  end
 
   def new_user
     @films = Film.all
@@ -65,10 +73,10 @@ end
   end
 
   def user_params
-    params.require(:user).permit(:email, :flickr_name, :location, :uid, :provider, :availability, :image, {film_ids: [] },
+    params.require(:user).permit(:email, :flickr_name, :location, :uid, :provider, :availability, :receive_email, :image, {film_ids: [] },
       {album_attributes: [:id, :flickr_id, { photos_attributes: [:id, :flickr_id] } ]
-      }
-      )
+    }
+    )
   end
 
 end

@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :users do
     member do
       get 'new_user'
+      patch 'update_new_user'
     end
   end
 
