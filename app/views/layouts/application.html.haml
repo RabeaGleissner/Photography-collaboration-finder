@@ -13,10 +13,11 @@
     #top
       - if current_user
         #login
-          Logged in as
-          = link_to current_user.flickr_name, user_path(current_user.id)
-          = link_to image_tag(current_user.image), user_path(current_user.id)
-          = link_to "Log out", destroy_user_session_path, method: :delete
+          YOU
+          #account
+            = link_to current_user.flickr_name, user_path(current_user.id)
+            = link_to image_tag(current_user.image), user_path(current_user.id)
+            = link_to "Log out", destroy_user_session_path, method: :delete
       - else
         #login
           = link_to "Sign in with Flickr", user_omniauth_authorize_path(:flickr)

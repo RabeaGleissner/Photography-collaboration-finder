@@ -56,9 +56,6 @@ body {
 
 nav {
   height: 80px;
-// float:left;
-// background-color: grey;
-// display: inline-block;
   border-bottom: 3px solid grey;
 
   ul {
@@ -75,6 +72,7 @@ nav {
     font-family: 'Rock Salt', sans-serif;
     display: inline;
     border-right: 2px solid black;
+    margin: 5px;
 
     a:hover {
       text-decoration: none;
@@ -102,8 +100,14 @@ nav {
   height: 80px;
   float: right;
   display: inline-block;
-  padding-right:0.2em;
+  padding-right:1em;
+  width: 10%;
+
+#account {
+  display:none;
 }
+}
+
 }
 .wrapper {
   width: 80%;

@@ -2,8 +2,6 @@ $(function(){
 
   $('#wait_overlay').addClass('hidden');
 
-  console.log('loading main js')
-
   $('.edit_user').submit(function(ev){
     ev.preventDefault();
 
@@ -26,7 +24,10 @@ $(function(){
    console.log('failed:', error);
  });
 
-
+  $('#login').click(function(){
+    console.log('clicked');
+    $('#account').toggle();
+  });
 
 
 });
