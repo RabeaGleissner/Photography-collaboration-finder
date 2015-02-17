@@ -1,6 +1,17 @@
-%h1 Your collaborations
+.wrapper
+  %h1 Your collaborations
 
-- @collaborations.map do |collaboration|
-  %ul
-    %li
-      = collaboration.collaborator1_id
+  - if @collaborations.any?
+    %ul
+    - @collaborations.map do |collaboration|
+      %li
+        = collaboration.created_at.strftime("%d %b. %Y")
+        - if collaboration.collaborator1 == current_user
+          = link_to collaboration.collaborator2.flickr_name, user_path(collaboration.collaborator2_id)
+        - else
+          = link_to collaboration.collaborator1.flickr_name, user_path(collaboration.collaborator1_id)
+  
+  - else
+    %h3 You haven't been matched with any other film swapsters yet! Why don't you initiate a collaboration now?
+
+    = link_to "Find a partner", users_path
