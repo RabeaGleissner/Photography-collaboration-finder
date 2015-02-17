@@ -10,26 +10,28 @@
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   %body
-    - if current_user
-      #login
-        Logged in as
-        = link_to current_user.flickr_name, user_path(current_user.id)
-        = link_to image_tag(current_user.image), user_path(current_user.id)
-        = link_to "Log out", destroy_user_session_path, method: :delete
-    - else
-      #login
-        = link_to "Sign in with Flickr", user_omniauth_authorize_path(:flickr)
-    %nav
-      %ul
-        %li 
-          = link_to "HOME", root_path
-          = link_to "HOW IT WORKS", about_path
-          - if current_user
-            = link_to "FIND A PARTNER", users_path
-            = link_to "MY COLLABORATIONS", list_path
-            = link_to "TIPS FOR AWESOME DOUBLES", tips_path
-            - if can? :read, Collaboration
-              = link_to "LIST OF COLLABORATIONS", collaborations_path
+    #top
+      - if current_user
+        #login
+          Logged in as
+          = link_to current_user.flickr_name, user_path(current_user.id)
+          = link_to image_tag(current_user.image), user_path(current_user.id)
+          = link_to "Log out", destroy_user_session_path, method: :delete
+      - else
+        #login
+          = link_to "Sign in with Flickr", user_omniauth_authorize_path(:flickr)
+      %nav
+        %ul
+          %li
+            #logo 
+              = link_to "FILM SWAPSTERS", root_path
+            = link_to "ABOUT", about_path
+            - if current_user
+              = link_to "COLLABORATE", users_path
+              = link_to "MY COLLABORATIONS", list_path
+              = link_to "TIPS", tips_path
+              - if can? :read, Collaboration
+                = link_to "LIST OF COLLABORATIONS", collaborations_path
     
     %p.notice= notice
     %p.alert= alert

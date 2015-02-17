@@ -51,45 +51,60 @@ body {
   }
 }
 
-  nav {
-    // float:left;
-    // background-color: grey;
+#top { 
+  vertical-align: baseline;
+
+nav {
+  height: 80px;
+// float:left;
+// background-color: grey;
+// display: inline-block;
+  border-bottom: 3px solid grey;
+
+  ul {
+    padding-left: 0em;
+    list-style:none;
     // display: inline-block;
-    border-bottom: 3px solid grey;
 
-
-    ul {
-      padding-left: 0em;
+    li {
+      padding-top: 2em;
       list-style:none;
-      display: inline-block;
+      font-weight:800;
 
-      li {
-        padding-top: 2em;
-        list-style:none;
-        font-weight:800;
+  #logo {
+    font-family: 'Rock Salt', sans-serif;
+    display: inline;
+    border-right: 2px solid black;
 
-        a {
-          padding: 0.5em;
-        }
+    a:hover {
+      text-decoration: none;
+    }
+    }
+      a {
+        padding: 0.5em;
+        text-decoration:none;
+      }
 
-        a:hover {
-          
-        }
+      a:hover {
+        text-decoration: underline;
+      }
+
+      a:visited {
+        color: inherit;
       }
     }
-
-
-#login {
- //  float: right;
- // display: inline-block;
-position:fixed;
-right: 0px;
-    // text-align: right;
-    // // padding-bottom: 0.5em;
-    // // padding-right:0.2em;
   }
 }
 
+
+
+#login {
+  height: 80px;
+  float: right;
+  display: inline-block;
+  padding-right:0.2em;
+}
+}
 .wrapper {
   width: 80%;
   margin: 0 auto;
