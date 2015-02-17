@@ -19,6 +19,7 @@ body {
   #homepage_container {
     position: relative;
 
+
     #homepage_overlay {
       max-width: 700px;
       min-width:300px;
@@ -29,6 +30,8 @@ body {
       left: 40%;
       margin-left: -270px;
       border-radius:30%;
+      padding: 20px;
+
 
       h1 {
         font-size: 3em;
