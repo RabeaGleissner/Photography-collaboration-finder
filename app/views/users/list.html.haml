@@ -6,6 +6,7 @@
     - @collaborations.map do |collaboration|
       %li
         = collaboration.created_at.strftime("%d %b. %Y")
+        partnered with
         - if collaboration.collaborator1 == current_user
           = link_to collaboration.collaborator2.flickr_name, user_path(collaboration.collaborator2_id)
         - else

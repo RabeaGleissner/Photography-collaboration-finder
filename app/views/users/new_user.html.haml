@@ -8,8 +8,11 @@
 
   = form_for @user, url: update_new_user_user_path(@user) do |f|
     = f.text_field :email
-    = f.label :receive_email
-    = f.check_box :receive_email, {}, true, false
+    = f.radio_button 'receive_email', 'true'
+    = f.label :receive_email, 'Yes, please!'
+    = f.radio_button 'receive_email', 'false'
+    = f.label :receive_email, 'No, thanks.'
+
     - if @user.created_at > 1.minute.ago
       %p Your availability for a film swap is automatically set to available. If you would like to change it now, please feel free. You can also change it in your profile.
       = f.radio_button 'availability', 'true'

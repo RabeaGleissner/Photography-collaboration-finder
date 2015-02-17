@@ -25,8 +25,8 @@
           = link_to "HOME", root_path
           = link_to "HOW IT WORKS", about_path
           - if current_user
-            =# link_to "GALLERY", gallery_path
             = link_to "FIND A PARTNER", users_path
+            = link_to "MY COLLABORATIONS", list_path
             = link_to "TIPS FOR AWESOME DOUBLES", tips_path
             - if can? :read, Collaboration
               = link_to "LIST OF COLLABORATIONS", collaborations_path
