@@ -1,23 +1,26 @@
 .wrapper
-  %h1 Welcome to Film swap partner finder!
+  - if @user.email == ""
+    %h1 Welcome to Film swap partner finder!
+  - else
+    %h1 Update your email settings
 
   %p If you would like to be notified by email about any film swap partner matches, please enter your email below.
 
   = form_for @user, url: user_path do |f|
     = f.text_field :email
-    %p You can always add it to your user profile later.
-    %p Your availability for a film swap is automatically set to available. If you would like to change it now, please feel free. You can also change it in your profile.
-    = f.radio_button 'availability', 'true'
-    = f.label :availability, 'available'
-    = f.radio_button 'availability', 'false'
-    = f.label :availability, 'unavailable'
-    %p We're automatically setting your location from your details on Flickr. If you want to change this, please update your location here.
-    = f.text_field :location
-    %p Which film formats to you shoot?
-    %div
-      = f.label :film_types, 'Film types'
-    %div
-      = f.collection_check_boxes :film_ids, @films, :id, :format, {},{:multiple => true} 
+    - if @user.created_at > 1.minute.ago
+      %p Your availability for a film swap is automatically set to available. If you would like to change it now, please feel free. You can also change it in your profile.
+      = f.radio_button 'availability', 'true'
+      = f.label :availability, 'available'
+      = f.radio_button 'availability', 'false'
+      = f.label :availability, 'unavailable'
+      %p We're automatically setting your location from your details on Flickr. If you want to change this, please update your location here.
+      = f.text_field :location
+      %p Which film formats to you shoot?
+      %div
+        = f.label :film_types, 'Film types'
+      %div
+        = f.collection_check_boxes :film_ids, @films, :id, :format, {},{:multiple => true} 
     %div
     = f.submit "Continue"
  

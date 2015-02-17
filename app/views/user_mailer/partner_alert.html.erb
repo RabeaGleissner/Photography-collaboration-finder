@@ -1,12 +1,12 @@
 
 <h3>Hi <%= @user.flickr_name %>, </h3>
   
-<p>Great news for you. <%= current_user.flickr_name %> just initiated a film swap with you! </p>
+<p>Great news for you. <%#= current_user.flickr_name %> just initiated a film swap with you! </p>
 
 <p><%= link_to "If you fancy, message #{@user.flickr_name} through Flickr", "https://www.flickr.com/mail/write/?to=#{@user.uid}", target: '_blank'%></p>
 
 
 <p>This email was sent from the Film Swapsters website.</p>
-<p><%= link_to "http://filmswapster.herokuapp.com",  target: '_blank' %>filmswapster.herokuapp.com</p>
+<p><%#= link_to "http://filmswapster.herokuapp.com",  target: '_blank' %>filmswapster.herokuapp.com</p>
 
 <p>If you no longer want to be notified of any film swap matches, you can updated your profile here: <%= edit_user_path(@user.id)%></p>

@@ -36,6 +36,7 @@
   - if can? :edit, @user
     #edit
       = link_to "Edit your profile", edit_user_path(@user.id)
+      = link_to "Edit your email settings", new_user_user_path(@user.id)
 
   - if @films.any?
     = "#{@user.flickr_name} shoots"
