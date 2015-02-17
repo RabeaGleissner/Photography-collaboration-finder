@@ -56,12 +56,12 @@
   %p Availability: #{availability}
 
   .flex_container
-  - if @user.album.flickr_id != ""
+  - if @user.album.flickr_id.present?
     %h3 Photos from this user
     - @users_selected_photos.first(2).each do |photo|
       - info = flickr.photos.getInfo(photo_id: photo.flickr_id)
       = image_tag(FlickRaw.url_n(info), class: "user_flickr_photos")
-  - elsif @user.album.flickr_id == ""
+  - elsif @user.album.flickr_id.nil?
     %p You can vamp up your profile by displaying some of your Flickr photos! 
     = link_to "Yeah, let me add some pics!", edit_user_path(@user.id)
     = link_to "No, thanks. My profile is fancy enough.", edit_user_path(@user.id)

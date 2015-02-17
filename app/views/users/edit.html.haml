@@ -24,7 +24,7 @@
         %div
           = album_f.collection_select :flickr_id, @photosets, :id, :title
     
-        - if @user.album.flickr_id != ""
+        - if @user.album.flickr_id.present?
           %p Which photos from your selected album do you want to display?
           .flex_container
             - @all_selected_set_photos.each do |photo|

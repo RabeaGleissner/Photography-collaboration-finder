@@ -24,7 +24,7 @@ class UsersController < ApplicationController
       @photosets = flickr.photosets.getList(user_id: @user.uid)
       @selected_set = flickr.photosets.getList(user_id: @user.uid, id: @user.album.flickr_id)
 
-      if @user.album.flickr_id != ""
+      unless @user.album.flickr_id.blank?
         @first_10_selected_set_photos = flickr.photosets.getPhotos(photoset_id: @user.album.flickr_id, privacy_filter: '1').photo.first(10)
 
         @users_selected_photos = @user.album.photos
@@ -40,7 +40,7 @@ class UsersController < ApplicationController
     @films = Film.all
     @user = User.find(params[:id])
 
-    if @user.album.flickr_id != ""
+  unless @user.album.flickr_id.blank?
       @all_selected_set_photos = flickr.photosets.getPhotos(photoset_id: @user.album.flickr_id, privacy_filter: '1').photo
     end
     if @user.uid
