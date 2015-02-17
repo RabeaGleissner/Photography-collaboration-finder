@@ -10,8 +10,8 @@ class UsersController < ApplicationController
 
   def list
 
-    @collaborations = Collaboration.where(collaborator1_id: current_user.id, collaborator2_id: current_user.id)
-  end
+    @collaborations = Collaboration.where("collaborator1_id = ? or collaborator2_id = ?", current_user.id, current_user.id).uniq
+end
 
   def show
     @user = User.find(params[:id])
