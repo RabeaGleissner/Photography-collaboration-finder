@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get '/about', to: 'home#about'
   get '/gallery', to: 'home#gallery'
   get '/tips', to: 'home#tips'
+  get  '/list', to: 'users#list'
 
   resources :users do
     member do

@@ -8,7 +8,7 @@
 
   %p Which film format do you want to use for your collaboration?
 
-  = form_for(@user, id: :match, url: new_collaboration_path, method: :get, id: "match_form" ) do |f|
+  = form_for(current_user, id: :match, url: new_collaboration_path, method: :get, id: "match_form" ) do |f|
     %div
       = f.label :film_types, 'Film types'
       = f.collection_check_boxes :film_ids, @films, :id, :format, {},{:multiple => true, name: 'film_ids[]'} 

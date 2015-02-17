@@ -4,13 +4,13 @@ class UsersController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @user = current_user
     @users = User.all
     @films = Film.all
   end
 
   def list
-    
+
+    @collaborations = Collaboration.where(collaborator1_id: current_user.id, collaborator2_id: current_user.id)
   end
 
   def show

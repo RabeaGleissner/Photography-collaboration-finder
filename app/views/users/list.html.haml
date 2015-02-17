@@ -1,1 +1,6 @@
-list.html.haml
+%h1 Your collaborations
+
+- @collaborations.each do |collaboration|
+  %ul
+    %li
+      = collaboration.collaborator1_id
