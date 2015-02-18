@@ -35,6 +35,8 @@ class User < ActiveRecord::Base
         user.image = auth.info.image
         user.password = Devise.friendly_token[0,20]
         user.role = "user"
+        user.availability = true
+        user.receive_email = false
       end
     end
   end

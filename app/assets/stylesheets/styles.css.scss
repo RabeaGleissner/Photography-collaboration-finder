@@ -2,7 +2,7 @@ body {
   font-family: 'Raleway', sans-serif;
   font-weight: 400;
   font-size: 16px;
-  color: blackgrey;
+  color: #1C2126;
 
   h1 {
     font-size: 2em;
@@ -110,11 +110,11 @@ margin-top: 1em;
 // button styling
 input[type="submit"], button, #edit_button a {
 background: grey;
-background-image: -webkit-linear-gradient(top, grey, blackgrey);
-background-image: -moz-linear-gradient(top, grey, blackgrey);
-background-image: -ms-linear-gradient(top, grey, blackgrey);
-background-image: -o-linear-gradient(top, grey, blackgrey);
-background-image: linear-gradient(top, grey, blackgrey);
+background-image: -webkit-linear-gradient(top, grey, #666666);
+background-image: -moz-linear-gradient(top, grey, #666666);
+background-image: -ms-linear-gradient(top, grey, #666666);
+background-image: -o-linear-gradient(top, grey, #666666);
+background-image: linear-gradient(top, grey, #666666);
 -webkit-border-radius: 4;
 -moz-border-radius: 4;
 border-radius: 4px;
