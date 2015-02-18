@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
   has_many :photos, through: :album
   validates :flickr_name, presence: true
   validates :flickr_name, uniqueness: true
-  
+  validates :uid, uniqueness: true
 
   accepts_nested_attributes_for :album
 
