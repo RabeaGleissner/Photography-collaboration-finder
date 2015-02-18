@@ -8,7 +8,9 @@ class User < ActiveRecord::Base
   has_and_belongs_to_many :films, dependent: :destroy
   has_one :album
   has_many :photos, through: :album
+  validates :flickr_name, presence: true
   validates :flickr_name, uniqueness: true
+  
 
   accepts_nested_attributes_for :album
 
