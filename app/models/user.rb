@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, omniauth_providers: [:flickr]
   
-  has_many :collaborations, foreign_key: :collaborator1_id   
+  has_many :collaborations, foreign_key: :collaborator1_id
   has_many :collaborations, foreign_key: :collaborator2_id 
   has_and_belongs_to_many :films, dependent: :destroy
   has_one :album
@@ -11,9 +11,7 @@ class User < ActiveRecord::Base
   validates :flickr_name, presence: true
   validates :flickr_name, uniqueness: true
   validates :uid, uniqueness: true
-
   accepts_nested_attributes_for :album
-
   geocoded_by :location
   after_validation :geocode, :if => :location_changed?
   after_initialize :populate_album

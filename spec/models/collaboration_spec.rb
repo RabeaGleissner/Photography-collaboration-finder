@@ -5,14 +5,17 @@ describe Collaboration do
   expect(FactoryGirl.build(:collaboration)).to be_valid
 end
 
-it "only can only be created when two users have the same film types" do
+# describe '#collaborator1_id' do
+#   it "should not be the same as collaborator2_id" do
+#     collaboration = FactoryGirl.build(:collaboration)
+#     expect(collaboration.collaborator1_id == collaboration.collaborator2_id).to_not be_valid
+#   end
+# end
 
-end
 
-it "collaborator_1 and collaborator_2 are not the same id" do
 
-end
-
+# 
+# should only be created if both collaborators have the same film formats
 # only sends email if user has receive_email true
 
 end
