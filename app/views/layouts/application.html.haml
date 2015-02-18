@@ -13,10 +13,13 @@
     #top
       - if current_user
         #login
-          YOU
-          #account
-            = link_to current_user.flickr_name, user_path(current_user.id)
+          = link_to "YOU", user_path(current_user.id)
+        #account
+          %div
+            = link_to "Your profile", user_path(current_user.id)
+          %div
             = link_to image_tag(current_user.image), user_path(current_user.id)
+          %div
             = link_to "Log out", destroy_user_session_path, method: :delete
       - else
         #login

@@ -22,15 +22,17 @@ body {
 
     #homepage_overlay {
       max-width: 700px;
+      max-height:400px;
       min-width:300px;
       min-height:100px;
       background-color: rgba(0, 0, 0, 0.3);
       position:fixed;
-      top: 40%;
+      top: 30%;
       left: 40%;
       margin-left: -270px;
       border-radius:30%;
-      padding: 20px;
+      padding-left: 20px;
+      padding-right: 20px;
 
 
       h1 {
@@ -57,6 +59,7 @@ body {
 nav {
   height: 80px;
   border-bottom: 3px solid grey;
+  width: 100%;
 
   ul {
     padding-left: 0em;
@@ -98,14 +101,30 @@ nav {
 
 #login {
   height: 80px;
-  float: right;
-  display: inline-block;
-  padding-right:1em;
-  width: 10%;
+  width: 20%;
+  font-weight: 800;
+  position: fixed;
+  top: 58px;
+  right: 5px;
+
+
+  a {
+    padding: 0.5em;
+    text-decoration:none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  a:visited {
+    color: inherit;
+  }
+}
 
 #account {
   display:none;
-}
+  float: right;
 }
 
 }

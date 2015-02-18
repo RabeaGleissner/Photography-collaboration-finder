@@ -8,6 +8,8 @@ group :development, :test do
   gem 'meta_request'
   gem 'better_errors'
   gem 'letter_opener'
+  gem 'rspec-rails', '2.14.1'
+  gem 'factory_girl_rails'
 end
 
 gem 'devise'
