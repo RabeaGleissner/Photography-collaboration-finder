@@ -4,15 +4,17 @@
 
   - if current_user != @user
     - if @current_user_initiated_collaboration
-      %div 
-        You were matched with
-        = @user.flickr_name
-        - from_time = Time.now 
-        - to_time = @current_user_initiated_collaboration.last.created_at
-        = "#{distance_of_time_in_words(from_time, to_time)} ago"
-      %div
-        Contact them via Flickr messages now to arrange the details of your film swap.
-        = link_to "Message #{@user.flickr_name} through Flickr", "https://www.flickr.com/mail/write/?to=#{@user.uid}", target: '_blank'
+      .match 
+        %p
+          You were matched with
+          = @user.flickr_name
+          - from_time = Time.now 
+          - to_time = @current_user_initiated_collaboration.last.created_at
+          = "#{distance_of_time_in_words(from_time, to_time)} ago."
+        %p
+          Contact them via Flickr messages now to arrange the details of your film swap.
+        %p
+          = link_to "Message #{@user.flickr_name} through Flickr", "https://www.flickr.com/mail/write/?to=#{@user.uid}", target: '_blank'
 
     - elsif @user_initiated_collaboration
       %div

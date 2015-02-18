@@ -1,0 +1,72 @@
+ 
+#top { 
+vertical-align: baseline;
+
+  nav {
+  height: 80px;
+  border-bottom: 3px solid grey;
+  width: 100%;
+
+    ul {
+    padding-left: 0em;
+    list-style:none;
+    // display: inline-block;
+
+      li {
+      padding-top: 2em;
+      list-style:none;
+      font-weight:800;
+
+      #logo {
+      font-family: 'Rock Salt', sans-serif;
+      display: inline;
+      border-right: 2px solid black;
+      margin: 5px;
+
+        a:hover {
+          text-decoration: none;
+        }
+      }
+
+      a {
+        padding: 0.5em;
+        text-decoration:none;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+
+      a:visited {
+        color: inherit;
+      }
+    }
+  }
+}
+
+      .login {
+      width: 20%;
+      font-weight: 800;
+      float:right;
+
+          a {
+          padding: 0.8em;
+          text-decoration:none;
+          
+
+              &:hover {
+              text-decoration: underline;
+              }
+
+              &:visited {
+              color: inherit;
+              }
+          }
+      }
+
+  #account {
+  display:none;
+  float: right;
+  }
+ 
+} // closing top container
