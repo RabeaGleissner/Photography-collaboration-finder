@@ -30,6 +30,7 @@
         - if @user.album.flickr_id.present?
           %p Which photos from your selected album do you want to display?
           .flex_container
+            / = render partial: "all_selected_set_photo"
             - @all_selected_set_photos.each do |photo|
               - info = flickr.photos.getInfo(photo_id: photo.id)
               .user_flickr_photos
