@@ -24,6 +24,6 @@
     = render partial: "pool_photo", collection: @pool_photos
      
   = form_tag about_path, remote: :true, id: :more_photos, method: :get do 
-    = button_tag "See more"
+    = button_tag "See more", id: "more_photos_button"
     = hidden_field_tag :page, @page+1, id: :page_param
   

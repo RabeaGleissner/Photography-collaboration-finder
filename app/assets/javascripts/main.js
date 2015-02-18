@@ -24,7 +24,7 @@ $(function(){
    console.log('failed:', error);
  });
 
-  $('#login').click(function(ev){
+  $('#click').click(function(ev){
     console.log('clicked');
     ev.preventDefault();
     $('#account').toggle();

@@ -1,8 +1,9 @@
 body {
-  font-family: 'Raleway', sans-serif;
-  font-weight: 400;
-  font-size: 16px;
-  
+font-family: 'Raleway', sans-serif;
+font-weight: 400;
+font-size: 16px;
+color: black-grey;
+
   h1 {
     font-size: 2em;
   }
@@ -15,37 +16,35 @@ body {
     width: 100%;
     margin: 0 auto;
   }
-  
-  #homepage_container {
-    position: relative;
 
+#homepage_container {
+  position: relative;
 
     #homepage_overlay {
-      max-width: 700px;
-      max-height:400px;
-      min-width:300px;
-      min-height:100px;
-      background-color: rgba(0, 0, 0, 0.3);
-      position:fixed;
-      top: 30%;
-      left: 40%;
-      margin-left: -270px;
-      border-radius:30%;
-      padding-left: 20px;
-      padding-right: 20px;
+    max-width: 700px;
+    max-height:400px;
+    min-width:300px;
+    min-height:100px;
+    background-color: rgba(0, 0, 0, 0.3);
+    position:fixed;
+    top: 30%;
+    left: 40%;
+    margin-left: -270px;
+    border-radius:30%;
+    padding-left: 20px;
+    padding-right: 20px;
 
-
-      h1 {
-        font-size: 3em;
-        font-family: 'Rock Salt', sans-serif;
-        text-align: center;
-        color: white;
-        font-weight: bold;
+    h1 {
+      font-size: 3em;
+      font-family: 'Rock Salt', sans-serif;
+      text-align: center;
+      color: white;
+      font-weight: bold;
       }
-      h3 {
-       color:white;
-       text-align: center;
-       font-size: 2em;
+    h3 {
+     color:white;
+     text-align: center;
+     font-size: 2em;
        a {
         color:white;
       }
@@ -54,33 +53,34 @@ body {
 }
 
 #top { 
-  vertical-align: baseline;
+vertical-align: baseline;
 
-nav {
+  nav {
   height: 80px;
   border-bottom: 3px solid grey;
   width: 100%;
 
-  ul {
+    ul {
     padding-left: 0em;
     list-style:none;
     // display: inline-block;
 
-    li {
+      li {
       padding-top: 2em;
       list-style:none;
       font-weight:800;
 
-  #logo {
-    font-family: 'Rock Salt', sans-serif;
-    display: inline;
-    border-right: 2px solid black;
-    margin: 5px;
+      #logo {
+      font-family: 'Rock Salt', sans-serif;
+      display: inline;
+      border-right: 2px solid black;
+      margin: 5px;
 
-    a:hover {
-      text-decoration: none;
-    }
-    }
+        a:hover {
+          text-decoration: none;
+        }
+      }
+
       a {
         padding: 0.5em;
         text-decoration:none;
@@ -98,184 +98,176 @@ nav {
 }
 
 
+      .login {
+      width: 20%;
+      font-weight: 800;
+      float:right;
 
-#login {
-  height: 80px;
-  width: 20%;
-  font-weight: 800;
-  position: fixed;
-  top: 58px;
-  right: 5px;
+          a {
+          padding: 0.8em;
+          text-decoration:none;
+          
 
+              &:hover {
+              text-decoration: underline;
+              }
 
-  a {
-    padding: 0.5em;
-    text-decoration:none;
-  }
+              &:visited {
+              color: inherit;
+              }
+          }
+      }
 
-  a:hover {
-    text-decoration: underline;
-  }
-
-  a:visited {
-    color: inherit;
-  }
-}
-
-#account {
+  #account {
   display:none;
   float: right;
-}
-
-}
-.wrapper {
-  width: 80%;
-  margin: 0 auto;
-
-  intro {
-    display:block;
   }
+ 
+} // closing top container
 
-  .about {
-   max-width: 20%;
-   min-width: 15%;
-   display: inline-block;
-   vertical-align: top;
- }
+.wrapper {
+width: 80%;
+margin: 0 auto;
 
-}
+    intro {
+    display:block;
+    }
+
+    .about {
+    max-width: 20%;
+    min-width: 15%;
+    display: inline-block;
+    vertical-align: top;
+    }
+
+} //closing wrapper
 
 #edit {
-  float: right;
+float: right;
 }
 
 .flex_container { 
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: baseline;
+display: flex;
+flex-direction: row;
+flex-wrap: wrap;
+justify-content: center;
+align-items: baseline;
+margin-bottom: 2em;
 
-  .user_flickr_photos {
-    padding: 5px;
-    a {
-      display: block;
-    }
-  }
+.user_flickr_photos {
+padding: 5px;
+a {
+display: block;
+}
+}
 }
 
 .hidden_fields {
-  display:none;
+display:none;
 }
 
 #map-canvas {
-  height:300px;
-  width:300px;
-  float: right;
-  display: inline-block;
+height:300px;
+width:300px;
+float: right;
+display: inline-block;
 }
 
 .pool_photos {
-  display: inline-block;
+display: inline-block;
 }
 
 .pool_photo_owner {
-  display: block;
+display: block;
 
 }
 
 #wait_overlay {
-  max-height: 40%;
-  max-width: 40%;
-  top:20%;
-  background-color: rgba(0, 0, 0, 0.3);
-  position: absolute;
-  padding:20px;
-  color:gold;
+max-height: 40%;
+max-width: 40%;
+top:20%;
+background-color: rgba(0, 0, 0, 0.3);
+position: absolute;
+padding:20px;
+color:gold;
 }
 
 .hidden {
-  display:none;
+display:none;
 }
 
+// resetting button styling
+input[type="submit"],
+input[type="reset"],
+input[type="button"],
+button {
+// background: none;
+border: 0;
+color: inherit;
+cursor: pointer;
+font: inherit;
+line-height: normal;
+overflow: visible;
+padding: 0;
+-webkit-appearance: button; /* for input */
+-webkit-user-select: none; /* for button */
+ -moz-user-select: none;
+  -ms-user-select: none;
+margin-top: 1em;
+}
+
+// button styling
+input[type="submit"], button {
+background: grey;
+background-image: -webkit-linear-gradient(top, grey, blackgrey);
+background-image: -moz-linear-gradient(top, grey, blackgrey);
+background-image: -ms-linear-gradient(top, grey, blackgrey);
+background-image: -o-linear-gradient(top, grey, blackgrey);
+background-image: linear-gradient(to bottom, grey, blackgrey);
+-webkit-border-radius: 4;
+-moz-border-radius: 4;
+border-radius: 4px;
+font-family: inherit;
+color: #ffffff;
+font-size: 1em;
+padding: 0.5em;
+text-decoration: none;
+
+&:hover {
+background: #585858;
+  background-image: -webkit-linear-gradient(top, #737373, #595959);
+  background-image: -moz-linear-gradient(top, #737373, #595959);
+  background-image: -ms-linear-gradient(top, #737373, #595959);
+  background-image: -o-linear-gradient(top, #737373, #595959);
+  background-image: linear-gradient(to bottom, #737373, #595959);
+  text-decoration: none;
+}
+#more_photos_button {
+margin: 0 auto;
+position: center;
+}
+}
 
 
 footer {
-  width: 70%;
-  margin: 0 auto;
-  font-size: 0.8em;
-  padding-top: 2em;
-  text-align: center;
+width: 70%;
+margin: 0 auto;
+font-size: 0.8em;
+padding-top: 2em;
+text-align: center;
 }
 
-input [type='submit'] {
-  padding: 15px;
+
+
+#more_photos_button {
+width: 100%;
+margin: 0 auto;
+position: center;
+}
 
 }
 
-}
 
-// Animation for loader
 
-.loader {
-  font-size: 10px;
-  margin: 5em auto;
-  text-indent: -9999em;
-  width: 11em;
-  height: 11em;
-  border-radius: 50%;
-  background: #ffffff;
-  background: -moz-linear-gradient(left, #ffffff 10%, rgba(255, 255, 255, 0) 42%);
-  background: -webkit-linear-gradient(left, #ffffff 10%, rgba(255, 255, 255, 0) 42%);
-  background: -o-linear-gradient(left, #ffffff 10%, rgba(255, 255, 255, 0) 42%);
-  background: -ms-linear-gradient(left, #ffffff 10%, rgba(255, 255, 255, 0) 42%);
-  background: linear-gradient(to right, #ffffff 10%, rgba(255, 255, 255, 0) 42%);
-  position: relative;
-  -webkit-animation: load3 1.4s infinite linear;
-  animation: load3 1.4s infinite linear;
-}
-.loader:before {
-  width: 50%;
-  height: 50%;
-  background: #FFF;
-  border-radius: 100% 0 0 0;
-  position: absolute;
-  top: 0;
-  left: 0;
-  content: '';
-}
-.loader:after {
-  background: #0dcecb;
-  width: 75%;
-  height: 75%;
-  border-radius: 50%;
-  content: '';
-  margin: auto;
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-}
-@-webkit-keyframes load3 {
-  0% {
-    -webkit-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-  100% {
-    -webkit-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
-@keyframes load3 {
-  0% {
-    -webkit-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-  100% {
-    -webkit-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
 
 
