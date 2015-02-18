@@ -14,6 +14,8 @@
       = f.collection_check_boxes :film_ids, @films, :id, :format, {},{:multiple => true, name: 'film_ids[]'} 
     %div
       = f.submit "Find partner!", id: "find_partner"
+      %br
+      %br
 
   #wait_overlay.hidden
     %p Please wait! Finding you a partner.

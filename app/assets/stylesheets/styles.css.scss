@@ -33,6 +33,8 @@ margin: 0 auto;
 
 #edit {
 float: right;
+
+
 }
 
 .flex_container { 
@@ -90,7 +92,7 @@ input[type="submit"],
 input[type="reset"],
 input[type="button"],
 button {
-// background: none;
+background: none;
 border: 0;
 color: inherit;
 cursor: pointer;
@@ -106,13 +108,13 @@ margin-top: 1em;
 }
 
 // button styling
-input[type="submit"], button {
+input[type="submit"], button, #edit_button a {
 background: grey;
 background-image: -webkit-linear-gradient(top, grey, blackgrey);
 background-image: -moz-linear-gradient(top, grey, blackgrey);
 background-image: -ms-linear-gradient(top, grey, blackgrey);
 background-image: -o-linear-gradient(top, grey, blackgrey);
-background-image: linear-gradient(to bottom, grey, blackgrey);
+background-image: linear-gradient(top, grey, blackgrey);
 -webkit-border-radius: 4;
 -moz-border-radius: 4;
 border-radius: 4px;
@@ -131,18 +133,31 @@ background: #585858;
   background-image: linear-gradient(to bottom, #737373, #595959);
   text-decoration: none;
 }
+
 #more_photos_button {
 margin: 0 auto;
 position: center;
 }
+
+
 }
 
+input[type="text"], select {
+  padding: 0.5em;
+  font-family: inherit;
+  font-size: 1em;
+  width: 30%
+}
+
+
 footer {
-width: 70%;
+width: 100%;
 margin: 0 auto;
+margin-top: 2.5em;
 font-size: 0.8em;
-padding-top: 2em;
+padding-top: 0.5em;
 text-align: center;
+border-top: 1px solid lightgrey;
 }
 
 #more_photos_button {

@@ -6,10 +6,12 @@
     %div
       = f.label :location, 'Location'
       = f.text_field :location
+    %br
     %div
       = f.label :film_types, 'Film types'
     %div
       = f.collection_check_boxes :film_ids, @films, :id, :format, {},{:multiple => true} 
+    %br
     %div
       = f.label 'Your availability'
     %div
@@ -17,6 +19,7 @@
       = f.label :availability, 'available'
       = f.radio_button 'availability', 'false'
       = f.label :availability, 'unavailable'
+    %br
     - if @photosets
       = f.fields_for :album do |album_f|
         %div
