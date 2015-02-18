@@ -23,7 +23,7 @@
     - if @photosets
       = f.fields_for :album do |album_f|
         %div
-          = album_f.label :name
+          = album_f.label :albums
         %div
           = album_f.collection_select :flickr_id, @photosets, :id, :title
     
