@@ -3,6 +3,7 @@ body {
   font-weight: 400;
   font-size: 16px;
   color: #1C2126;
+  min-height: 100%;
 
   h1 {
     font-size: 2em;
@@ -17,6 +18,10 @@ body {
 .wrapper {
 width: 80%;
 margin: 0 auto;
+min-height: 100%;
+
+
+
 
     intro {
     display:block;
@@ -94,20 +99,16 @@ input[type="text"], select {
 }
 
 
-footer {
-width: 100%;
-margin: 0 auto;
-margin-top: 2.5em;
-font-size: 0.8em;
-padding-top: 0.5em;
-text-align: center;
-border-top: 1px solid lightgrey;
-}
-
 #more_photos_button {
 width: 100%;
 margin: 0 auto;
 position: center;
+}
+
+.match {
+  background-color: lightgrey;
+  max-width: 700px;
+  padding: 0.5em;
 }
 
 }

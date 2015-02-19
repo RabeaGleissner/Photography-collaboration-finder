@@ -1,6 +1,7 @@
 .wrapper
   %h1
     = @user.flickr_name
+    = image_tag(@user.image)
 
   - if current_user != @user
     - if @current_user_initiated_collaboration
@@ -26,7 +27,6 @@
         They should have already contacted you by Flickr message. Otherwise, contact them now! 
         = link_to "Message #{@user.flickr_name} through Flickr", "https://www.flickr.com/mail/write/?to=#{@user.uid}", target: '_blank'
   
-  = image_tag(@user.image)
   %p Location: #{@user.location}
   .hidden_fields
     #latitude

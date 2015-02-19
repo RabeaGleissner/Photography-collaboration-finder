@@ -10,7 +10,7 @@
 
   = form_for(current_user, id: :match, url: new_collaboration_path, method: :get, id: "match_form" ) do |f|
     %div
-      = f.label :film_types, 'Film types'
+      = f.label :film_types, 'Film format to shoot:'
       = f.collection_check_boxes :film_ids, @films, :id, :format, {},{:multiple => true, name: 'film_ids[]'} 
     %div
       = f.submit "Find partner!", id: "find_partner"
