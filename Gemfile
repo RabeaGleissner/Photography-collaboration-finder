@@ -19,6 +19,7 @@ gem 'geocoder'
 gem 'omniauth-flickr', '~> 0.0.15'
 gem 'flickraw', '~> 0.9.8'
 gem 'haml-rails'
+gem 'neat'
 gem 'jquery-turbolinks'
 
 
