@@ -1,8 +1,34 @@
 # Photography collaboration finder
 
-A Rails app I'm creating during my web dev bootcamp at General Assembly in London.
+A Rails app for analog photography enthusiasts to find a partner for a double exposures project. Login through Flickr and start a collaboration with another random user from anywhere in the world.
+
+I created this as my final project during my Web Development Immersive course at General Assembly.
 
 
-## Purpose of the app
+## See it live in action
 
-A service for analog photography enthusiasts on Flickr who are looking for a film swap partner anywhere in the world. The website will match users randomly with others so they can start collaborating.
+I'm hosting this on Heroku at: [film-swap.herokuapp.com/](http://film-swap.herokuapp.com/)
+
+
+## Technology used
+
+* Ruby on Rails
+* Flickr API
+* AJAX
+* JavaScript
+* jQuery
+* HAML
+* SCSS
+* Tests with rspec & FactoryGirl
+
+
+## How to run it
+
+
+ `cd photography-collaboration-finder`
+
+  `bundle install`
+  
+  `rails server`
+  
+ `open http://localhost:3000`
