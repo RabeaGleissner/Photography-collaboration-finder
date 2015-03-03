@@ -2,7 +2,7 @@
   %h1 Your collaborations
 
   - if @collaborations.any?
-    %ul
+    %ul.collaboration-items
     - @collaborations.map do |collaboration|
       %li
         = collaboration.created_at.strftime("%d %b. %Y")

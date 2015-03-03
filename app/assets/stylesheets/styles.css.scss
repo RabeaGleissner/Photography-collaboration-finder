@@ -1,5 +1,6 @@
 @import "variables.css.scss";
 
+
 body {
   font-family: 'Raleway', sans-serif;
   font-weight: 400;
@@ -23,9 +24,10 @@ width: 80%;
 margin: 0 auto;
 min-height: 100%;
 
-    intro {
-    display:block;
-    }
+  intro {
+  display:block;
+  }
+
 
 } //closing wrapper
 
@@ -65,12 +67,11 @@ display: block;
 
 
 .about {
-width: 200px;
-height: 150px;
+width: 210px;
+height: 180px;
 background-color: lightgrey;
 padding:10px;
 margin: 5px;
-
 }
 
 }
@@ -130,7 +131,9 @@ position: center;
   padding: 0.5em;
 }
 
-}
+
+
+
 
 h4.notice, h4.alert {
   color: red;
@@ -144,6 +147,8 @@ h4.notice, h4.alert {
   right: 5%;
 }
 
+
+} //closing body tag
 
 
 
