@@ -59,6 +59,10 @@
       @media #{$desktop-narrow} {
       color: black;
         }
+
+        @media #{$iphonefive} {
+          display:none;
+        }
     }
 
     h3 {
@@ -79,13 +83,16 @@
        color: black;
          }
 
+        @media #{$iphonefive} {
+           font-size: 1em;
+         }
+
        a {
         color:white;
      
-
-      @media #{$desktop-narrow} {
-      color: black;
-        }
+          @media #{$desktop-narrow} {
+          color: black;
+            }
         }
     }
 

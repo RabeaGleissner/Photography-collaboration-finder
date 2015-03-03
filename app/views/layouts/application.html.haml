@@ -25,6 +25,9 @@
           - if current_user
             %li= link_to "Your profile", user_path(current_user.id)
             %li= link_to "Log out", destroy_user_session_path, method: :delete
+          - else
+            %li.login
+              = link_to "Sign in with Flickr", user_omniauth_authorize_path(:flickr)
         %ul
           %li= link_to "FILM SWAPSTERS", root_path, id: "logo"
           %li= link_to "ABOUT", about_path
