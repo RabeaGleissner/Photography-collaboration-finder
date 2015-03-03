@@ -12,8 +12,19 @@
   %body
     #top
       %nav
-        %a.nav-icon{:href => "#"}
         = link_to "FILM SWAPSTERS", root_path, id: "mobile-logo"
+        %a.nav-icon{:href => "#"}
+        %ul#mobile
+          %li= link_to "ABOUT", about_path
+          - if current_user
+            %li= link_to "COLLABORATE", users_path
+            %li= link_to "MY COLLABORATIONS", list_path
+            %li= link_to "TIPS", tips_path
+            - if can? :read, Collaboration
+              %li= link_to "LIST OF COLLABORATIONS", collaborations_path
+          - if current_user
+            %li= link_to "Your profile", user_path(current_user.id)
+            %li= link_to "Log out", destroy_user_session_path, method: :delete
         %ul
           %li= link_to "FILM SWAPSTERS", root_path, id: "logo"
           %li= link_to "ABOUT", about_path

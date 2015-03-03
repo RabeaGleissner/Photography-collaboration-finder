@@ -15,7 +15,6 @@
     .nav-icon {
       display:none;
 
-
   @media #{$eightfourty} {
       display: block;
       position: absolute;
@@ -33,7 +32,6 @@
     #mobile-logo {
       display:none;
 
-
     @media #{$eightfourty} {
       padding-top: 15px;
       display:block;
@@ -45,12 +43,27 @@
         text-decoration: none;
         color:black;
       }
-
+      }
     }
 
+  ul#mobile {
+    display:none;
 
+    @media #{$eightfourty} {
+    display: block;
+    display:none;
+
+    li {
+      display:block;
+      width: 100%;
+      text-align: center;
+      background-color:white;
+      border-bottom: 2px solid black;
+      text-transform: uppercase;
+    }
 
     }
+  }
 
     ul {
       padding-left: 0em;
@@ -58,6 +71,10 @@
       clear: both;
       height: 50px;
       line-height: 50px;
+  
+  @media #{$eightfourty} {
+      display:none;
+      }
 
     li {
       display: inline-block;
@@ -65,11 +82,7 @@
       font-weight:800;
       float: left;
 
-      @media #{$eightfourty} {
-        display:none;
-        
-      }
-      
+    
       img {
         display: inline;
         vertical-align: middle;

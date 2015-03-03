@@ -4,11 +4,8 @@ $(function(){
 
   $('.edit_user').submit(function(ev){
     ev.preventDefault();
-
-    console.log('clicked');
-    
+   
     $('#wait_overlay').removeClass('hidden');
-
     this.submit();
 
   });
@@ -18,17 +15,10 @@ $(function(){
    $('.flex_container').append(data);
    var new_page = parseInt($('#page_param').val())+1;
    $('#page_param').val(new_page);
-
  }).
   on('ajax:error',function(xhr, status, error){
    console.log('failed:', error);
  });
-
-  $('nav ul li#menu').on("click", function(ev){
-    console.log('clicked');
-    // ev.preventDefault();
-    $(this).children("ul").toggle();
-  });
 
 
 });
