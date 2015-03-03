@@ -90,20 +90,25 @@
       
       &.login {
         float:right;
+        width: 200px;
       }
       &#menu {
         float: right;
         text-align: right;
         background-color: white;
+        padding-right: 50px;
+        width: 150px;
+        border-radius: 20%;
 
         ul {
           display: none;
+
           li {
             display: block;
             width: 100%;
+
           }
         }
-
 
         a {
           padding: 0.8em;

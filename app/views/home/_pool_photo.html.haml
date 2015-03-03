@@ -1,4 +1,4 @@
 - info = flickr.photos.getInfo(photo_id: pool_photo.id)
-.user_flickr_photos
+.pool_flickr_photos
   = image_tag FlickRaw.url_n(info)    
   = link_to "by #{pool_photo.ownername}", "https://www.flickr.com/photos/#{pool_photo.owner}", target: "blank"

@@ -1,3 +1,5 @@
+@import "variables.css.scss";
+
 body {
   font-family: 'Raleway', sans-serif;
   font-weight: 400;
@@ -21,18 +23,8 @@ width: 80%;
 margin: 0 auto;
 min-height: 100%;
 
-
-
-
     intro {
     display:block;
-    }
-
-    .about {
-    max-width: 20%;
-    min-width: 15%;
-    display: inline-block;
-    vertical-align: top;
     }
 
 } //closing wrapper
@@ -42,19 +34,45 @@ float: right;
 }
 
 .flex_container { 
-display: flex;
+  display: flex;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+
 flex-direction: row;
+-webkit-box-direction: row;
+-ms-flexbox-direction: row;
+-webkit-flex-direction: row;
+
 flex-wrap: wrap;
+-webkit-box-wrap: wrap;
+-ms-flexbox-wrap: wrap;
+-webkit-flex-wrap: wrap;
+
 justify-content: center;
-align-items: baseline;
+-webkit-justify-content: center;
+-ms-justify-content: center;align-items: baseline;
 margin-bottom: 2em;
 
-.user_flickr_photos {
-padding: 5px;
+
+.pool_flickr_photos {
+margin: 5px;
+
 a {
 display: block;
 }
 }
+
+
+.about {
+width: 200px;
+height: 150px;
+background-color: lightgrey;
+padding:10px;
+margin: 5px;
+
+}
+
 }
 
 .hidden_fields {

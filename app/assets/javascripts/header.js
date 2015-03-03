@@ -7,8 +7,6 @@ $(function(){
 
   $('nav a.nav-icon').on("click", function(){
   
-  console.log('clicked');
-
     $('ul#mobile').slideToggle();
   });
 
