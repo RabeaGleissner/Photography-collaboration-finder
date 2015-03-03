@@ -18,7 +18,7 @@ body {
  
 
 .wrapper {
-padding-top: 50px;
+padding-top: 55px;
 width: 80%;
 margin: 0 auto;
 min-height: 100%;
@@ -130,6 +130,18 @@ position: center;
   padding: 0.5em;
 }
 
+}
+
+h4.notice, h4.alert {
+  color: red;
+  background-color: rgba(237, 237, 237, 0.8);
+  padding: 10px;
+  height: 30px;
+  min-width: 200px;
+  z-index:100;
+  position: absolute;
+  top: 10%;
+  right: 5%;
 }
 
 

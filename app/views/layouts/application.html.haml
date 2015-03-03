@@ -47,9 +47,10 @@
           - else
             %li.login
               = link_to "Sign in with Flickr", user_omniauth_authorize_path(:flickr)
-    
-    %p.notice= notice
-    %p.alert= alert
+    - if notice
+      %h4.notice= notice
+    - if alert
+      %h4.alert= alert
 
     = yield
 

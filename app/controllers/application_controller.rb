@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
     if user.email.empty?
       new_user_user_path(id: user.id)
     else
-      users_path
+      list_path
     end
 
   end

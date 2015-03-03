@@ -6,7 +6,6 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
     user.flickr_access_secret = request.env["omniauth.auth"].credentials.secret
 
     if user.persisted?
-      flash.notice = "Signed in through Flickr"
       sign_in_and_redirect user
     else
       session["devise.user_attributes"] = user.attributes
