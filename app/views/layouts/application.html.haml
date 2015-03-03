@@ -12,6 +12,8 @@
   %body
     #top
       %nav
+        %a.nav-icon{:href => "#"}
+        = link_to "FILM SWAPSTERS", root_path, id: "mobile-logo"
         %ul
           %li= link_to "FILM SWAPSTERS", root_path, id: "logo"
           %li= link_to "ABOUT", about_path

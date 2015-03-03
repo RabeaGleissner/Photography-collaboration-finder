@@ -7,6 +7,7 @@
   }
 
 #homepage_container {
+  padding-top: 50px;
   position: relative;
 
     #homepage_overlay {
@@ -55,17 +56,9 @@
           text-align: center;
         }
 
-      @media (max-width: 920px) {
-        font-size: 2.3em;
-        text-align: center;
-      }
-      @media (max-width: 860px) {
-        font-size: 2.1em;
-        text-align: center;
-       }
-    @media #{$desktop-narrow} {
-    color: black;
-      }
+      @media #{$desktop-narrow} {
+      color: black;
+        }
     }
 
     h3 {
@@ -81,15 +74,7 @@
        font-size: 1.5em;
        text-align: center;
          }
-     @media (max-width: 920px) {
-       font-size: 1.4em;
-       text-align: center;
-             }
 
-     @media (max-width: 860px) {
-       font-size: 1.1em;
-       text-align: center;
-         }
        @media #{$narrow} {
        color: black;
          }
