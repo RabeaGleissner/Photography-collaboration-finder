@@ -30,10 +30,10 @@
         - if @user.album.flickr_id.present?
           %p Which photos from your selected album do you want to display?
           .flex_container
-            = render partial: "album_photo", collection: @album_photos
+            = render partial: "album_photo", collection: @album_photos, as: :photo, locals: {album_f: album_f}
             
           = form_tag users_path, remote: :true, id: :album_photos, method: :get do 
-            = button_tag "Select photos", id: "select_photos_button"
+            = button_tag "Show photos", id: "select_photos_button"
     
     %div
       = f.submit "Update"
