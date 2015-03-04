@@ -10,15 +10,15 @@ $(function(){
 
   });
 
-  $('#more_photos').
-  on('ajax:success',function(evt, data, status, xhr){
-   $('.flex_container').append(data);
-   var new_page = parseInt($('#page_param').val())+1;
-   $('#page_param').val(new_page);
- }).
-  on('ajax:error',function(xhr, status, error){
-   console.log('failed:', error);
- });
+   $('#more_photos').
+   on('ajax:success',function(evt, data, status, xhr){
+    $('.flex_container#photos').append(data);
+    var new_page = parseInt($('#page_param').val())+1;
+    $('#page_param').val(new_page);
+  }).
+   on('ajax:error',function(xhr, status, error){
+    console.log('failed:', error);
+  });
 
 
 });

@@ -23,7 +23,7 @@
 
   %h2 The most recent additions to the Film swapsters group
 
-  .flex_container
+  .flex_container#photos
     = render partial: "pool_photo", collection: @pool_photos
      
   = form_tag about_path, remote: :true, id: :more_photos, method: :get do 
