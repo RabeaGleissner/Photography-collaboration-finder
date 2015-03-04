@@ -41,7 +41,9 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
 
   unless @user.album.flickr_id.blank?
-      @all_selected_set_photos = flickr.photosets.getPhotos(photoset_id: @user.album.flickr_id, privacy_filter: '1').photo
+      @album_photos = flickr.photosets.getPhotos(photoset_id: @user.album.flickr_id, privacy_filter: '1').photo
+      
+      render partial: "album_photo", collection: @album_photos, layout: false if request.xhr?
     end
     if @user.uid
       @photosets = flickr.photosets.getList(user_id: @user.uid)

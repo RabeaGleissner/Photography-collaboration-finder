@@ -21,4 +21,13 @@ $(function(){
   });
 
 
+    $('#album_photos').
+    on('ajax:success',function(evt, data, status, xhr){
+     console.log('success')
+   }).
+    on('ajax:error',function(xhr, status, error){
+     console.log('failed:', error);
+   });
+
+
 });
