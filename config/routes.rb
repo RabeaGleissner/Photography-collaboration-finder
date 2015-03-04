@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     member do
       get 'new_user'
       patch 'update_new_user'
+      post 'get_photos'
     end
   end
 

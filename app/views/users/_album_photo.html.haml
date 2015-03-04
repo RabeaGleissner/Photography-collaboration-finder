@@ -5,4 +5,7 @@
     - photos_f.object.flickr_id = photo.id if @user.photo_flickr_ids.include?(photo.id)
     %div
       = photos_f.check_box :flickr_id, {}, photo.id
+      %div
+    
+
 
