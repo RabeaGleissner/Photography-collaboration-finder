@@ -2,7 +2,12 @@
   %h1
     = @user.flickr_name
     = image_tag(@user.image)
-
+  %br
+  - if can? :edit, @user
+    #edit
+      #edit_button
+        = link_to "Edit your profile", edit_user_path(@user.id)
+        = link_to "Edit your email settings", new_user_user_path(@user.id)
   - if current_user != @user
     - if @current_user_initiated_collaboration
       .match 
@@ -27,44 +32,46 @@
         They should have already contacted you by Flickr message. Otherwise, contact them now! 
         = link_to "Message #{@user.flickr_name} through Flickr", "https://www.flickr.com/mail/write/?to=#{@user.uid}", target: '_blank'
   
-  %p Location: #{@user.location}
-  .hidden_fields
-    #latitude
-      = @user.latitude
-    #longitude 
-      = @user.longitude
-  #map-canvas
+  .outer
+    .film_formats
+      - if @films.any?
+        %h3
+          = "#{@user.flickr_name} shoots"
+        - @films.each do |film|
+          %ul
+            %li
+              = film.format
+      - else
+        = "You haven't added any films!" 
+        = link_to "Add some films", edit_user_path(@user.id)
+      - if @user.availability == true
+        - availability = "available for film swaps"
+      - else
+        - availability = "not available for film swaps"
+      %h4 
+        = "Availability: #{@user.flickr_name} is currently #{availability}."
 
-  - if can? :edit, @user
-    #edit
-      #edit_button
-        = link_to "Edit your profile", edit_user_path(@user.id)
-        = link_to "Edit your email settings", new_user_user_path(@user.id)
-
-  - if @films.any?
-    = "#{@user.flickr_name} shoots"
-    - @films.each do |film|
-      %ul
-        %li
-          = film.format
-  - else
-    = "You haven't added any films!" 
-    = link_to "Add some films", edit_user_path(@user.id)
+    .location
+      %h3 Location: #{@user.location.titleize}
+      .hidden_fields
+        #latitude
+          = @user.latitude
+        #longitude 
+          = @user.longitude
+      #map-canvas
+    
+    
 
 
-  - if @user.availability == true
-    - availability = "available for film swaps"
-  - else
-    - availability = "currently not available for film swaps"
-  %p Availability: #{availability}
-
-  .flex_container
   - if @user.album.flickr_id.present?
     - if @user.album.photos.present?
-      %h3 Photos from this user
-      - @users_selected_photos.each do |photo|
-        - info = flickr.photos.getInfo(photo_id: photo.flickr_id)
-        = image_tag(FlickRaw.url_n(info), class: "user_flickr_photos")
+      #user_profile
+        %h3 Photos from this user
+        .flex_container
+          - @users_selected_photos.each do |photo|
+            - info = flickr.photos.getInfo(photo_id: photo.flickr_id)
+            .pool_flickr_photos
+              = image_tag(FlickRaw.url_n(info))
     - else
       %h3 You've selected an album. Now pick some photos to display on your profile!
       #edit_button 
@@ -73,4 +80,5 @@
     %p You can pimp your profile by displaying some of your Flickr photos! 
     = link_to "Yeah, let me add some pics!", edit_user_path(@user.id)
 
+  
 
