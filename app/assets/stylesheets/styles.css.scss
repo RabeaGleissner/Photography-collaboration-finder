@@ -75,8 +75,23 @@ margin: 5px;
 
 }
 
-#edit {
+#edit.neat {
   padding-bottom: 10px;
+  @include outer-container;
+
+  #edit_button.row1 {
+    @include span-columns(3);
+    width: 150px;
+    margin-top: 20px;
+
+  }
+
+  #edit_button.row2 {
+    @include span-columns(9);
+    @include omega();
+    width: 200px;
+    margin-top: 20px;
+  }
 }
 
 .outer {
