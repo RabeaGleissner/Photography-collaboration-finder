@@ -26,7 +26,7 @@ $(function(){
   console.log('changed');
 
     $.ajax({
-      url: "get_photos",
+      url: "edit",
       type: "GET",
       dataType: 'html',
       data: {selected_album_id: $('#user_album_attributes_flickr_id option:selected').val()},
@@ -35,11 +35,11 @@ $(function(){
         
          $('.flex_container#user_album_photos').html(response);
           console.log("success");
-          console.log(response)
+          console.log(response);
         },
         error: function(response){
           console.log("error");
-          console.log(response)
+          console.log(response);
         }
       });  
 });

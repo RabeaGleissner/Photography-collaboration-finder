@@ -1,11 +1,13 @@
-- info = flickr.photos.getInfo(photo_id: photo.id)
-.user_flickr_photos
-  = image_tag FlickRaw.url_t(info)      
-  = album_f.fields_for :photos, album_f.object.photos.new do |photos_f|
-    - photos_f.object.flickr_id = photo.id if @user.photo_flickr_ids.include?(photo.id)
-    %div
-      = photos_f.check_box :flickr_id, {}, photo.id
-      %div
-    
+= form_for(@user, url: user_path) do |f|
+  = f.fields_for :album do |album_f|
+
+    - info = flickr.photos.getInfo(photo_id: photo.id)
+    .user_flickr_photos
+      = image_tag FlickRaw.url_t(info)      
+      = album_f.fields_for :photos, album_f.object.photos.new do |photos_f|
+        - photos_f.object.flickr_id = photo.id if @user.photo_flickr_ids.include?(photo.id)
+        %div
+          = photos_f.check_box :flickr_id, {}, photo.id
+          %div
 
 

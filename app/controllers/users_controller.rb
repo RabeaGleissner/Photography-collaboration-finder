@@ -36,18 +36,26 @@ class UsersController < ApplicationController
   end
 
   def edit
-
     @films = Film.all
     @user = User.find(params[:id])
 
   unless @user.album.flickr_id.blank?
       @album_photos = flickr.photosets.getPhotos(photoset_id: @user.album.flickr_id, privacy_filter: '1').photo
-      
-      render partial: "album_photo", collection: @album_photos, layout: false if request.xhr?
     end
+
     if @user.uid
       @photosets = flickr.photosets.getList(user_id: @user.uid)
     end
+
+ if request.xhr?
+   puts "this is xhr ------------------------------------------------"
+
+   @album_id = params[:selected_album_id]
+   @album_photos = flickr.photosets.getPhotos(photoset_id: @album_id, privacy_filter: '1').photo
+
+   render partial: "users/album_photo", collection: @album_photos, as: :photo,  layout: false
+ end
+
   end
 
   def update
@@ -56,16 +64,6 @@ class UsersController < ApplicationController
     @user.update(user_params)
     redirect_to user_path(@user.id)
   end
-
-def get_photos
-
-        if request.xhr?
-          @album_id = params[:selected_album_id]
-          @album_photos = flickr.photosets.getPhotos(photoset_id: @album_id, privacy_filter: '1').photo
-
-          render partial: "album_photo", collection: @album_photos, as: :photo, locals: {album_f: album_f}
-        end
-end
 
 
   def update_new_user
