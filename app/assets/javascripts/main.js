@@ -2,7 +2,7 @@ $(function(){
 
   $('#wait_overlay').addClass('hidden');
 
-  $('.edit_user').submit(function(ev){
+  $('.matching_users .edit_user').submit(function(ev){
     ev.preventDefault();
    
     $('#wait_overlay').removeClass('hidden');
@@ -24,6 +24,7 @@ $(function(){
 
  $('#user_album_attributes_flickr_id').change(function(){
   console.log('changed');
+  $('#wait_overlay').removeClass('hidden');
 
     $.ajax({
       url: "edit",
@@ -35,7 +36,7 @@ $(function(){
         
          $('.flex_container#user_album_photos').html(response);
           console.log("success");
-          console.log(response);
+   
         },
         error: function(response){
           console.log("error");

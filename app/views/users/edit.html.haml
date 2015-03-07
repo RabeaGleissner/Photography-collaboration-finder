@@ -27,7 +27,7 @@
           = album_f.label :albums
         %div
           = album_f.collection_select :flickr_id, @photosets, :id, :title
-    
+
           %p Which photos from your selected album do you want to display?
           .flex_container#user_album_photos
             = render partial: "album_photo"

@@ -38,9 +38,10 @@ class UsersController < ApplicationController
 def edit
     @films = Film.all
     @user = User.find(params[:id])
+    per_page = 15
 
   unless @user.album.flickr_id.blank?
-      @album_photos = flickr.photosets.getPhotos(photoset_id: @user.album.flickr_id, privacy_filter: '1').photo
+      @album_photos = flickr.photosets.getPhotos(photoset_id: @user.album.flickr_id, privacy_filter: '1', per_page: per_page).photo
     end
 
     if @user.uid
@@ -48,13 +49,12 @@ def edit
     end
 
  if request.xhr?
-   puts "this is xhr ------------------------------------------------"
 
    @album_id = params[:selected_album_id]
-    @album_photos = flickr.photosets.getPhotos(photoset_id: @album_id, privacy_filter: '1').photo
+
+    @album_photos = flickr.photosets.getPhotos(photoset_id: @album_id, privacy_filter: '1', per_page: per_page).photo
 
    render partial: "album_photo",  layout: false
-   # @user.album.flickr_id = @album_id
  end
 end
 
