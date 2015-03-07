@@ -1,4 +1,6 @@
 @import "variables.css.scss";
+@import "bourbon";
+@import "neat";
 
 
 body {
@@ -31,9 +33,6 @@ min-height: 100%;
 
 } //closing wrapper
 
-#edit {
-float: right;
-}
 
 .flex_container { 
   display: flex;
@@ -76,15 +75,73 @@ margin: 5px;
 
 }
 
-.hidden_fields {
-display:none;
+#edit.neat {
+  padding-bottom: 10px;
+  @include outer-container;
+
+  #edit_button.row1 {
+    @include span-columns(3);
+    width: 150px;
+    margin-top: 20px;
+
+  }
+
+  #edit_button.row2 {
+    @include span-columns(9);
+    @include omega();
+    width: 200px;
+    margin-top: 20px;
+  }
 }
 
-#map-canvas {
-height:300px;
-width:300px;
-float: right;
-display: inline-block;
+.outer {
+  @include outer-container;
+  vertical-align: baseline;
+
+.location {
+  @include span-columns(6);
+  width: 300px;
+  background-color: #f1f1f1;
+  padding: 10px;
+  margin-top: 10px;
+  height: 350px;
+
+  h3 {
+    text-align: center;
+  }
+
+  #map-canvas {
+    height:250px;
+    width:250px;
+    margin: 0 auto;
+  }
+
+  .hidden_fields {
+  display:none;
+  }
+}
+
+.film_formats{
+  @include span-columns(6);
+  @include omega();
+  min-width: 300px;
+  background-color: #f1f1f1;
+  padding: 10px;
+  min-height: 200px;
+  margin-top: 10px;
+  margin-right: 10px;
+
+}
+}
+
+#user_profile{
+  background-color: #f1f1f1;
+  padding: 10px;
+  margin-top: 10px;
+
+  h2 {
+    text-align: center;
+  }
 }
 
 .pool_photos {
