@@ -59,12 +59,12 @@ class UsersController < ApplicationController
 
 def get_photos
 
-  @album_id = params[:selected_album_id]
+        if request.xhr?
+          @album_id = params[:selected_album_id]
+          @album_photos = flickr.photosets.getPhotos(photoset_id: @album_id, privacy_filter: '1').photo
 
-  @album_photos = flickr.photosets.getPhotos(photoset_id: @album_id, privacy_filter: '1').photo
-      
-    render partial: "album_photo", collection: @album_photos, layout: false if request.xhr?
-
+          render partial: "album_photo", collection: @album_photos, as: :photo, locals: {album_f: album_f}
+        end
 end
 
 

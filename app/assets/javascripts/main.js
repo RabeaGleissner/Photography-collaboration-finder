@@ -28,30 +28,23 @@ $(function(){
     $.ajax({
       url: "get_photos",
       type: "GET",
-      dataType: 'json',
+      dataType: 'html',
       data: {selected_album_id: $('#user_album_attributes_flickr_id option:selected').val()},
+
         success: function(response){
-          console.log("success:" + response);
+        
+         $('.flex_container#user_album_photos').html(response);
+          console.log("success");
+          console.log(response)
         },
         error: function(response){
-          console.log("error:" + response);
+          console.log("error");
+          console.log(response)
         }
-      });
-
-  // console.log(data);
-  
+      });  
 });
 
 
-
-   //  $('#album_photos').
-   //  on('ajax:success',function(evt, data, status, xhr){
-   //   console.log('success:', data);
-
-   // }).
-   //  on('ajax:error',function(xhr, status, error){
-   //   console.log('failed:', error);
-   // });
 
 
 });
