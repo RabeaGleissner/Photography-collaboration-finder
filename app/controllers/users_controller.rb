@@ -49,11 +49,8 @@ def edit
     end
 
  if request.xhr?
-
    @album_id = params[:selected_album_id]
-
     @album_photos = flickr.photosets.getPhotos(photoset_id: @album_id, privacy_filter: '1', per_page: per_page).photo
-
    render partial: "album_photo",  layout: false
  end
 end
@@ -74,7 +71,6 @@ end
   def new_user
     @films = Film.all
   end
-
 
 
   private

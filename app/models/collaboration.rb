@@ -30,6 +30,8 @@ class Collaboration < ActiveRecord::Base
     end
   end
 
+
+
 end
 
 

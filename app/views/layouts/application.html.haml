@@ -59,6 +59,9 @@
     = yield
 
     %footer
-      %p This website was created by Rabea Gleissner. Improvements will be made in due course. Including a sticky footer.
+      %p
+        This website was created by 
+        %a{:href => "http://www.rabea.co.uk"} Rabea Gleissner.
+        Improvements will be made in due course. Including a sticky footer.
     - if !current_user
       = link_to "Admin login", new_user_session_path

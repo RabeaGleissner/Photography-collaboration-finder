@@ -96,7 +96,7 @@ margin: 5px;
 
 .outer {
   @include outer-container;
-  vertical-align: baseline;
+  
 
 .location {
   @include span-columns(6);
