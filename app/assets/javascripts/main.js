@@ -23,13 +23,23 @@ $(function(){
 
 
  $('#user_album_attributes_flickr_id').change(function(){
-  console.log('success');
+  console.log('changed');
 
-  // $ajax({
-  //   url: "remote_action_in_your_controller",
-  //   type: "GET",
-  //   data: {select_tag_value: $('#select_tag_id option:selected').text()},
-  // })
+    $.ajax({
+      url: "get_photos",
+      type: "GET",
+      dataType: 'json',
+      data: {selected_album_id: $('#user_album_attributes_flickr_id option:selected').val()},
+        success: function(response){
+          console.log("success:" + response);
+        },
+        error: function(response){
+          console.log("error:" + response);
+        }
+      });
+
+  // console.log(data);
+  
 });
 
 

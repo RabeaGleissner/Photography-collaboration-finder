@@ -19,9 +19,7 @@
       = f.label :availability, 'available'
       = f.radio_button 'availability', 'false'
       = f.label :availability, 'unavailable'
-    %br
-    %div
-      = f.submit "Update your details"
+   
     %br
     - if @photosets
       = f.fields_for :album do |album_f|
@@ -33,7 +31,7 @@
           %p Which photos from your selected album do you want to display?
           .flex_container
             = render partial: "album_photo", collection: @album_photos, as: :photo, locals: {album_f: album_f}
-            = album_f.submit "Select photos"
-            
-= form_tag get_photos_user_path, remote: :true, id: :album_photos, method: :post do 
-  = button_tag "Show photos (AJAX)", id: "select_photos_button"  
+
+      %br
+      %div
+        = f.submit "Update your details"
