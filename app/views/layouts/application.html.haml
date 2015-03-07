@@ -48,9 +48,13 @@
             %li.login
               = link_to "Sign in with Flickr", user_omniauth_authorize_path(:flickr)
     - if notice
-      %h4.notice= notice
+      %h4.notice
+        = notice
+        %a#hide_flash_notice{:href => "#" } &#8667; Hide
     - if alert
-      %h4.alert= alert
+      %h4.alert
+        = alert
+        %a#hide_flash_notice{:href => "#" } &#8667; Hide
 
     = yield
 

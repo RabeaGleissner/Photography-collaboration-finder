@@ -45,7 +45,11 @@ $(function(){
       });  
 });
 
-
+ $('a#hide_flash_notice').on('click', function(ev){
+    ev.preventDefault();
+        console.log('clicked')
+       $(this).parent().addClass('hidden');
+ });
 
 
 });
