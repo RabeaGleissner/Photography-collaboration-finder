@@ -35,7 +35,7 @@ class UsersController < ApplicationController
     end
   end
 
-  def edit
+def edit
     @films = Film.all
     @user = User.find(params[:id])
 
@@ -51,12 +51,12 @@ class UsersController < ApplicationController
    puts "this is xhr ------------------------------------------------"
 
    @album_id = params[:selected_album_id]
-   @album_photos = flickr.photosets.getPhotos(photoset_id: @album_id, privacy_filter: '1').photo
+    @album_photos = flickr.photosets.getPhotos(photoset_id: @album_id, privacy_filter: '1').photo
 
-   render partial: "users/album_photo", collection: @album_photos, as: :photo,  layout: false
+   render partial: "album_photo",  layout: false
+   # @user.album.flickr_id = @album_id
  end
-
-  end
+end
 
   def update
     @user.album.photos.destroy_all
@@ -73,7 +73,6 @@ class UsersController < ApplicationController
 
   def new_user
     @films = Film.all
-    @user = User.find(params[:id])
   end
 
 
@@ -86,7 +85,7 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:email, :flickr_name, :location, :uid, :provider, :availability, :receive_email, :image, {film_ids: [] },
-      {album_attributes: [:id, :flickr_id, { photos_attributes: [:id, :flickr_id] } ]
+      {album_attributes: [:id, :flickr_id, :selected_album_id, { photos_attributes: [:id, :flickr_id] } ]
     }
     )
   end

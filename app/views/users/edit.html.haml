@@ -30,7 +30,7 @@
     
           %p Which photos from your selected album do you want to display?
           .flex_container#user_album_photos
-            = render partial: "album_photo", collection: @album_photos, as: :photo
-      %br
-      %div
-        = f.submit "Update your details"
+            = render partial: "album_photo"
+          %br
+          %div
+            = f.submit "Update your details"
