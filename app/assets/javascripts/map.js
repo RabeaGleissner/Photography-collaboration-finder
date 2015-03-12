@@ -8,13 +8,17 @@ myMap.initialize = function() {
 
     var mapOptions = {
         center: { lat: latitude, lng: longitude},     
-        zoom: 8,
+        zoom: 6,
+        styles:[{"featureType":"all","elementType":"all","stylers":[{"hue":"#ff0000"}]}]
     };
+
+
 
     var map = new google.maps.Map(myMap.mapCanvas, mapOptions);
 
     var markerOptions = {
-      position: { lat: latitude, lng: longitude }
+      position: { lat: latitude, lng: longitude },
+      icon: 'http://maps.google.com/mapfiles/ms/icons/yellow-dot.png'
     };
 
     var marker = new google.maps.Marker(markerOptions);
